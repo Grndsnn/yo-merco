@@ -1,0 +1,272 @@
+[
+  {
+    "supermarket_id": "11111111-1111-1111-1111-111111111111",
+    "supermarket_name": "Tiendas D1",
+    "supermarket_slug": "d1",
+    "product_query": "Arroz 1000g",
+    "price": 3800.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:44.904744"
+  },
+  {
+    "supermarket_id": "11111111-1111-1111-1111-111111111111",
+    "supermarket_name": "Tiendas D1",
+    "supermarket_slug": "d1",
+    "product_query": "Aceite Vegetal 1000ml",
+    "price": 7650.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:45.128599"
+  },
+  {
+    "supermarket_id": "11111111-1111-1111-1111-111111111111",
+    "supermarket_name": "Tiendas D1",
+    "supermarket_slug": "d1",
+    "product_query": "Leche Entera 900ml",
+    "price": 3200.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:45.268874"
+  },
+  {
+    "supermarket_id": "11111111-1111-1111-1111-111111111111",
+    "supermarket_name": "Tiendas D1",
+    "supermarket_slug": "d1",
+    "product_query": "Huevos AA x30",
+    "price": 15700.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:45.421902"
+  },
+  {
+    "supermarket_id": "11111111-1111-1111-1111-111111111111",
+    "supermarket_name": "Tiendas D1",
+    "supermarket_slug": "d1",
+    "product_query": "Café Molido 500g",
+    "price": 3850.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:45.671508"
+  },
+  {
+    "supermarket_id": "22222222-2222-2222-2222-222222222222",
+    "supermarket_name": "Tiendas Ara",
+    "supermarket_slug": "ara",
+    "product_query": "Arroz 1000g",
+    "price": 3850.0,
+    "is_promo": true,
+    "timestamp": "2026-10-11T22:48:45.870157"
+  },
+  {
+    "supermarket_id": "22222222-2222-2222-2222-222222222222",
+    "supermarket_name": "Tiendas Ara",
+    "supermarket_slug": "ara",
+    "product_query": "Aceite Vegetal 1000ml",
+    "price": 8050.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:46.161264"
+  },
+  {
+    "supermarket_id": "22222222-2222-2222-2222-222222222222",
+    "supermarket_name": "Tiendas Ara",
+    "supermarket_slug": "ara",
+    "product_query": "Leche Entera 900ml",
+    "price": 3350.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:46.305079"
+  },
+  {
+    "supermarket_id": "22222222-2222-2222-2222-222222222222",
+    "supermarket_name": "Tiendas Ara",
+    "supermarket_slug": "ara",
+    "product_query": "Huevos AA x30",
+    "price": 16300.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:46.497649"
+  },
+  {
+    "supermarket_id": "22222222-2222-2222-2222-222222222222",
+    "supermarket_name": "Tiendas Ara",
+    "supermarket_slug": "ara",
+    "product_query": "Café Molido 500g",
+    "price": 3950.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:46.765857"
+  },
+  {
+    "supermarket_id": "33333333-3333-3333-3333-333333333333",
+    "supermarket_name": "Mercaldas",
+    "supermarket_slug": "mercaldas",
+    "product_query": "Arroz 1000g",
+    "price": 4250.0,
+    "is_promo": true,
+    "timestamp": "2026-10-11T22:48:46.929030"
+  },
+  {
+    "supermarket_id": "33333333-3333-3333-3333-333333333333",
+    "supermarket_name": "Mercaldas",
+    "supermarket_slug": "mercaldas",
+    "product_query": "Aceite Vegetal 1000ml",
+    "price": 8300.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:47.126532"
+  },
+  {
+    "supermarket_id": "33333333-3333-3333-3333-333333333333",
+    "supermarket_name": "Mercaldas",
+    "supermarket_slug": "mercaldas",
+    "product_query": "Leche Entera 900ml",
+    "price": 3400.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:47.240001"
+  },
+  {
+    "supermarket_id": "33333333-3333-3333-3333-333333333333",
+    "supermarket_name": "Mercaldas",
+    "supermarket_slug": "mercaldas",
+    "product_query": "Huevos AA x30",
+    "price": 16500.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:47.519685"
+  },
+  {
+    "supermarket_id": "33333333-3333-3333-3333-333333333333",
+    "supermarket_name": "Mercaldas",
+    "supermarket_slug": "mercaldas",
+    "product_query": "Café Molido 500g",
+    "price": 4000.0,
+    "is_promo": true,
+    "timestamp": "2026-10-11T22:48:47.710197"
+  },
+  {
+    "supermarket_id": "44444444-4444-4444-4444-444444444444",
+    "supermarket_name": "Supermercado del Centro",
+    "supermarket_slug": "centro",
+    "product_query": "Arroz 1000g",
+    "price": 4200.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:47.858799"
+  },
+  {
+    "supermarket_id": "44444444-4444-4444-4444-444444444444",
+    "supermarket_name": "Supermercado del Centro",
+    "supermarket_slug": "centro",
+    "product_query": "Aceite Vegetal 1000ml",
+    "price": 8250.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:48.055367"
+  },
+  {
+    "supermarket_id": "44444444-4444-4444-4444-444444444444",
+    "supermarket_name": "Supermercado del Centro",
+    "supermarket_slug": "centro",
+    "product_query": "Leche Entera 900ml",
+    "price": 3400.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:48.320288"
+  },
+  {
+    "supermarket_id": "44444444-4444-4444-4444-444444444444",
+    "supermarket_name": "Supermercado del Centro",
+    "supermarket_slug": "centro",
+    "product_query": "Huevos AA x30",
+    "price": 15900.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:48.568929"
+  },
+  {
+    "supermarket_id": "44444444-4444-4444-4444-444444444444",
+    "supermarket_name": "Supermercado del Centro",
+    "supermarket_slug": "centro",
+    "product_query": "Café Molido 500g",
+    "price": 4100.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:48.801104"
+  },
+  {
+    "supermarket_id": "55555555-5555-5555-5555-555555555555",
+    "supermarket_name": "Éxito",
+    "supermarket_slug": "exito",
+    "product_query": "Arroz 1000g",
+    "price": 4500.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:49.023122"
+  },
+  {
+    "supermarket_id": "55555555-5555-5555-5555-555555555555",
+    "supermarket_name": "Éxito",
+    "supermarket_slug": "exito",
+    "product_query": "Aceite Vegetal 1000ml",
+    "price": 9100.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:49.128527"
+  },
+  {
+    "supermarket_id": "55555555-5555-5555-5555-555555555555",
+    "supermarket_name": "Éxito",
+    "supermarket_slug": "exito",
+    "product_query": "Leche Entera 900ml",
+    "price": 3800.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:49.325034"
+  },
+  {
+    "supermarket_id": "55555555-5555-5555-5555-555555555555",
+    "supermarket_name": "Éxito",
+    "supermarket_slug": "exito",
+    "product_query": "Huevos AA x30",
+    "price": 18900.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:49.433321"
+  },
+  {
+    "supermarket_id": "55555555-5555-5555-5555-555555555555",
+    "supermarket_name": "Éxito",
+    "supermarket_slug": "exito",
+    "product_query": "Café Molido 500g",
+    "price": 4550.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:49.621346"
+  },
+  {
+    "supermarket_id": "66666666-6666-6666-6666-666666666666",
+    "supermarket_name": "Carulla",
+    "supermarket_slug": "carulla",
+    "product_query": "Arroz 1000g",
+    "price": 5300.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:49.872856"
+  },
+  {
+    "supermarket_id": "66666666-6666-6666-6666-666666666666",
+    "supermarket_name": "Carulla",
+    "supermarket_slug": "carulla",
+    "product_query": "Aceite Vegetal 1000ml",
+    "price": 11400.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:50.019292"
+  },
+  {
+    "supermarket_id": "66666666-6666-6666-6666-666666666666",
+    "supermarket_name": "Carulla",
+    "supermarket_slug": "carulla",
+    "product_query": "Leche Entera 900ml",
+    "price": 4850.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:50.312587"
+  },
+  {
+    "supermarket_id": "66666666-6666-6666-6666-666666666666",
+    "supermarket_name": "Carulla",
+    "supermarket_slug": "carulla",
+    "product_query": "Huevos AA x30",
+    "price": 22500.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:50.599506"
+  },
+  {
+    "supermarket_id": "66666666-6666-6666-6666-666666666666",
+    "supermarket_name": "Carulla",
+    "supermarket_slug": "carulla",
+    "product_query": "Café Molido 500g",
+    "price": 5250.0,
+    "is_promo": false,
+    "timestamp": "2026-10-11T22:48:50.751737"
+  }
+]

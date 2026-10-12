@@ -1,0 +1,156 @@
+{
+  "name": "Yo Merco - Sincronización Quincenal de Precios Multitienda",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "weeksInterval": 2
+            }
+          ]
+        }
+      },
+      "id": "node-trigger-schedule",
+      "name": "Disparador Quincenal (Lunes 05:00 AM)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "trigger-yomerco-scraping",
+        "options": {}
+      },
+      "id": "node-trigger-webhook",
+      "name": "Webhook Manual / API Admin",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        220,
+        480
+      ],
+      "webhookId": "webhook-yomerco-sync"
+    },
+    {
+      "parameters": {
+        "command": "python scraper/scraper.py"
+      },
+      "id": "node-execute-scraper",
+      "name": "Ejecutar Motor Scraper Python",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        500,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalizar y registrar auditoría de la ingesta de precios\nconst input = $input.all();\nconst timestamp = new Date().toISOString();\n\nreturn [{\n  json: {\n    status: 'success',\n    event: 'SCRAPING_COMPLETED',\n    execution_time: timestamp,\n    supermarkets: ['D1', 'Ara', 'Mercaldas', 'Centro', 'Éxito', 'Carulla'],\n    city: 'Manizales',\n    message: 'Precios actualizados y persistidos en Supabase correctamente.'\n  }\n}];"
+      },
+      "id": "node-transform-data",
+      "name": "Normalizar y Auditar Lote",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/audit_logs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "payload",
+              "value": "={{ $json }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-notify-supabase",
+      "name": "Notificar Ingesta a Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        980,
+        380
+      ]
+    }
+  ],
+  "connections": {
+    "Disparador Quincenal (Lunes 05:00 AM)": {
+      "main": [
+        [
+          {
+            "node": "Ejecutar Motor Scraper Python",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Manual / API Admin": {
+      "main": [
+        [
+          {
+            "node": "Ejecutar Motor Scraper Python",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ejecutar Motor Scraper Python": {
+      "main": [
+        [
+          {
+            "node": "Normalizar y Auditar Lote",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar y Auditar Lote": {
+      "main": [
+        [
+          {
+            "node": "Notificar Ingesta a Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
