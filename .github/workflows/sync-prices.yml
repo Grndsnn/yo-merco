@@ -1,0 +1,25 @@
+name: Yo Merco - Actualización Automática Diaria de Precios
+
+on:
+  schedule:
+    # Se ejecuta todos los días a las 5:00 AM hora de Colombia (10:00 UTC)
+    - cron: '0 10 * * *'
+  workflow_dispatch: # Permite ejecutarlo manualmente con un clic en GitHub
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar Código del Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sincronizar Precios Reales a Supabase
+        run: node scripts/sync_real_prices.js
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
