@@ -17,12 +17,15 @@ ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, tier = EXCLUDED.tier;
 -- 2. CATEGORÍAS DE LA CANASTA BÁSICA
 INSERT INTO public.categories (id, name, icon, display_order) VALUES
 ('c1000000-0000-0000-0000-000000000001', 'Despensa y Granos', '🌾', 1),
-('c1000000-0000-0000-0000-000000000002', 'Lácteos y Huevos', '🥛', 2),
+('c1000000-0000-0000-0000-000000000002', 'Lácteos y Quesos', '🧀', 2),
 ('c1000000-0000-0000-0000-000000000003', 'Frutas y Verduras', '🥑', 3),
-('c1000000-0000-0000-0000-000000000004', 'Carnes y Pollo', '🥩', 4),
+('c1000000-0000-0000-0000-000000000004', 'Carnes y Charcutería', '🥩', 4),
 ('c1000000-0000-0000-0000-000000000005', 'Aseo Hogar', '🧼', 5),
 ('c1000000-0000-0000-0000-000000000006', 'Cuidado Personal', '🪥', 6),
-('c1000000-0000-0000-0000-000000000007', 'Panadería y Café', '☕', 7)
+('c1000000-0000-0000-0000-000000000007', 'Panadería y Café', '☕', 7),
+('c1000000-0000-0000-0000-000000000008', 'Cereales y Desayuno', '🥣', 8),
+('c1000000-0000-0000-0000-000000000009', 'Enlatados y Conservas', '🥫', 9),
+('c1000000-0000-0000-0000-000000000010', 'Bebidas y Refrescos', '🥤', 10)
 ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon;
 
 -- 3. PRODUCTOS MAESTROS (50 Esenciales de Alta Rotación en Colombia)
@@ -89,7 +92,21 @@ INSERT INTO public.products (id, category_id, name, unit_of_measure, standard_qu
 ('10000001-0000-0000-0000-000000000047', 'c1000000-0000-0000-0000-000000000007', 'Pan Tajado Blanco Familiar Bimbo / Artesanal 450g', '450g', 0.45, '7702001001470', 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80'),
 ('10000001-0000-0000-0000-000000000048', 'c1000000-0000-0000-0000-000000000007', 'Chocolate Corona / Sol de Mesa en Pastillas 500g', '500g', 0.5, '7702001001480', 'https://images.unsplash.com/photo-1548907040-4baa42d10919?w=300&q=80'),
 ('10000001-0000-0000-0000-000000000049', 'c1000000-0000-0000-0000-000000000007', 'Galletas Saltín Noel Tradicionales (Taco x3)', 'paquete', 3.0, '7702001001490', 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&q=80'),
-('10000001-0000-0000-0000-000000000050', 'c1000000-0000-0000-0000-000000000007', 'Arepas de Maíz Blanco con Queso (Paquete x5)', 'paquete', 5.0, '7702001001500', 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=300&q=80')
+('10000001-0000-0000-0000-000000000050', 'c1000000-0000-0000-0000-000000000007', 'Arepas de Maíz Blanco con Queso (Paquete x5)', 'paquete', 5.0, '7702001001500', 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=300&q=80'),
+-- Nuevos Productos Verificados de Factura D1 y Canasta Familiar
+('10000001-0000-0000-0000-000000000051', 'c1000000-0000-0000-0000-000000000008', 'Hojuelas de Maíz Azucaradas D1 500g', '500g', 0.5, '7700304462490', 'https://images.unsplash.com/photo-1521483451569-e33803c0330c?w=300&q=80'),
+('10000001-0000-0000-0000-000000000052', 'c1000000-0000-0000-0000-000000000002', 'Queso Doble Crema Tajado 400g', '400g', 0.4, '7700304827398', 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=300&q=80'),
+('10000001-0000-0000-0000-000000000053', 'c1000000-0000-0000-0000-000000000002', 'Leche Deslactosada UHT 900ml', 'litro', 1.0, '7700304822867', 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=300&q=80'),
+('10000001-0000-0000-0000-000000000054', 'c1000000-0000-0000-0000-000000000002', 'Bebida con Yogur y Fruta 1000g', '1000g', 1.0, '7700304660315', 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&q=80'),
+('10000001-0000-0000-0000-000000000055', 'c1000000-0000-0000-0000-000000000009', 'Atún Lomitos en Agua 140g', 'unidad', 1.0, '7700304930951', 'https://images.unsplash.com/photo-1544943910-4c1dc44a0eb5?w=300&q=80'),
+('10000001-0000-0000-0000-000000000056', 'c1000000-0000-0000-0000-000000000009', 'Ensalada Rusa en Conserva 300g', 'unidad', 1.0, '7700304132522', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&q=80'),
+('10000001-0000-0000-0000-000000000057', 'c1000000-0000-0000-0000-000000000009', 'Mix de Verduras Campesinas 500g', '500g', 0.5, '7700304858132', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&q=80'),
+('10000001-0000-0000-0000-000000000058', 'c1000000-0000-0000-0000-000000000004', 'Alitas de Pollo Congeladas 1000g', '1000g', 1.0, '7700304839223', 'https://images.unsplash.com/photo-1527477378407-63e26be80171?w=300&q=80'),
+('10000001-0000-0000-0000-000000000059', 'c1000000-0000-0000-0000-000000000004', 'Mortadela con Jamón Tajada 400g', '400g', 0.4, '7700304846535', 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&q=80'),
+('10000001-0000-0000-0000-000000000060', 'c1000000-0000-0000-0000-000000000010', 'Soda Saborizada Izots / Bretaña 300ml', 'unidad', 1.0, '7700304095032', 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&q=80'),
+('10000001-0000-0000-0000-000000000061', 'c1000000-0000-0000-0000-000000000005', 'Papel Higiénico Familiar Megarollo x12', 'paquete_12', 12.0, '7700304288168', 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=300&q=80'),
+('10000001-0000-0000-0000-000000000062', 'c1000000-0000-0000-0000-000000000005', 'Jabón en Barra Multiactivo Ropa Pack x3', 'paquete_3', 3.0, '7708276719406', 'https://images.unsplash.com/photo-1607006314187-b679eb3bc05e?w=300&q=80'),
+('10000001-0000-0000-0000-000000000063', 'c1000000-0000-0000-0000-000000000005', 'Servilletas de Cocina Absorbentes x100', 'paquete', 1.0, '7700304305209', 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=300&q=80')
 ON CONFLICT (id) DO NOTHING;
 
 -- 4. EQUIVALENCIAS DE PRODUCTOS (Variante Clave: Marca Propia D1/Ara vs Comercial Éxito/Carulla/Mercaldas)

@@ -13,6 +13,19 @@ interface ProductCatalogProps {
   onOpenEquivalence: (product: Product) => void;
 }
 
+// Función para normalizar texto removiendo tildes y sinónimos comunes
+const normalizeText = (text: string): string => {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/mortadella/g, 'mortadela')
+    .replace(/spaguetti/g, 'spaghetti')
+    .replace(/espagueti/g, 'spaghetti')
+    .replace(/yogurt/g, 'yogur')
+    .trim();
+};
+
 export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   basket,
   onAddProduct,
@@ -20,8 +33,8 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   onOpenEquivalence,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  // Por defecto iniciamos en la primera categoría para NO saturar la pantalla con 50 productos a la vez
-  const [selectedCategory, setSelectedCategory] = useState<string>(CATEGORIES[0]?.id || 'all');
+  // Por defecto iniciamos en 'all' para que el usuario pueda ver el catálogo completo de inmediato
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const basketMap = useMemo(() => {
     const map = new Map<string, number>();
@@ -29,18 +42,60 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
     return map;
   }, [basket]);
 
+  const quickFilters = [
+    { label: '🥖 Pan Tajado', query: 'pan tajado' },
+    { label: '🥩 Mortadela', query: 'mortadela' },
+    { label: '🌭 Chorizos', query: 'chorizo' },
+    { label: '🥑 Frutas', query: 'fruta' },
+    { label: '🥣 Cereales', query: 'cereal' },
+    { label: '🧀 Quesos', query: 'queso' },
+    { label: '🍬 Panela', query: 'panela' },
+    { label: '🥛 Leches', query: 'leche' },
+    { label: '🥫 Atún / Conservas', query: 'atun' },
+    { label: '🧻 Aseo / Papel', query: 'papel' },
+    { label: '🥤 Bebidas', query: 'soda' },
+  ];
+
   const filteredProducts = useMemo(() => {
+    const rawQ = searchQuery.trim();
+
+    // Si no hay búsqueda de texto, filtrar puramente por pestaña de categoría
+    if (!rawQ) {
+      if (selectedCategory === 'all') return PRODUCTS;
+      return PRODUCTS.filter((p) => p.category_id === selectedCategory);
+    }
+
+    // Si hay búsqueda de texto, buscar en TODO el catálogo de forma inteligente
+    const qNorm = normalizeText(rawQ);
+    const tokens = qNorm.split(/\s+/).filter(Boolean);
+
     return PRODUCTS.filter((product) => {
-      const matchesSearch =
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.unit_of_measure.toLowerCase().includes(searchQuery.toLowerCase());
+      // Resolver categoría
+      const catObj = CATEGORIES.find((c) => c.id === product.category_id);
+      const catNameNorm = catObj ? normalizeText(catObj.name) : '';
+      const nameNorm = normalizeText(product.name);
+      const unitNorm = normalizeText(product.unit_of_measure);
+      const barcodeStr = product.barcode || '';
+      const eqStrings = product.equivalences
+        ? Object.values(product.equivalences)
+            .map((eq) => normalizeText(`${eq.store_product_name} ${eq.store_brand}`))
+            .join(' ')
+        : '';
 
-      const matchesCategory =
-        searchQuery.trim().length > 0 || // Si está buscando, busca en todo el catálogo
-        selectedCategory === 'all' || 
-        product.category_id === selectedCategory;
+      const searchableText = `${nameNorm} ${unitNorm} ${catNameNorm} ${barcodeStr} ${eqStrings}`;
 
-      return matchesSearch && matchesCategory;
+      // Todos los tokens deben coincidir (tolerante a plural/singular quitando 's' final)
+      return tokens.every((token) => {
+        if (searchableText.includes(token)) return true;
+        // Si el usuario escribió en plural ("chorizos", "frutas", "quesos", "panes")
+        if (token.length > 3 && token.endsWith('s')) {
+          const singular = token.slice(0, -1);
+          if (searchableText.includes(singular)) return true;
+        }
+        // Si el producto está en plural y el usuario buscó en singular
+        if (searchableText.includes(token + 's')) return true;
+        return false;
+      });
     });
   }, [searchQuery, selectedCategory]);
 
@@ -65,10 +120,10 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   };
 
   return (
-    <section className="space-y-6">
+    <section id="full-catalog-section" className="space-y-6">
       
       {/* Buscador Rápido y Selector de Categorías */}
-      <div className="bg-white p-4 sm:p-5 rounded-3xl shadow-xs border border-gray-200/80 space-y-4">
+      <div className="bg-white p-4 sm:p-6 rounded-3xl shadow-xs border border-gray-200/80 space-y-4">
         
         {/* Barra de Búsqueda */}
         <div className="relative">
@@ -77,36 +132,71 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Buscar producto por nombre (ej. Arroz, Leche, Huevos, Pechuga, Jabón)..."
-            className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 focus:bg-white transition-all placeholder:text-gray-400"
+            placeholder="Buscar por producto (ej. mortadela, pan tajado, chorizos, frutas, cereales, quesos, atún)..."
+            className="w-full pl-12 pr-20 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 focus:bg-white transition-all placeholder:text-gray-400"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-gray-400 hover:text-gray-700 bg-gray-200/80 px-2 py-0.5 rounded-lg"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-gray-500 hover:text-gray-800 bg-gray-200/80 hover:bg-gray-200 px-2.5 py-1 rounded-lg transition-colors"
             >
               Borrar
             </button>
           )}
         </div>
 
+        {/* Atajos de Búsqueda Rápida (Pan tajado, Mortadela, Chorizos, Frutas, Quesos...) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs">
+          <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider shrink-0 mr-1">
+            Búsquedas esenciales:
+          </span>
+          {quickFilters.map((qf) => (
+            <button
+              key={qf.label}
+              onClick={() => {
+                setSelectedCategory('all');
+                setSearchQuery(qf.query);
+              }}
+              className="px-2.5 py-1 rounded-xl bg-gray-100 hover:bg-brand-50 hover:text-brand-700 text-gray-700 font-semibold text-xs whitespace-nowrap transition-colors border border-gray-200/60 shadow-2xs"
+            >
+              {qf.label}
+            </button>
+          ))}
+        </div>
+
         {/* Pestañas de Categorías para Navegar Limpiamente */}
         <div>
           <div className="flex items-center justify-between pb-2">
-            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
-              Categorías de la canasta familiar (Selecciona para filtrar):
+            <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+              Categorías ({PRODUCTS.length} productos en catálogo):
             </span>
-            <button
-              onClick={() => setSelectedCategory('all')}
-              className={`text-xs font-bold transition-colors ${
-                selectedCategory === 'all' ? 'text-brand-700 underline' : 'text-gray-500 hover:text-gray-800'
-              }`}
-            >
-              Ver todos ({PRODUCTS.length})
-            </button>
+            <span className="text-xs font-extrabold text-brand-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
+              Mostrando {filteredProducts.length} {filteredProducts.length === 1 ? 'producto' : 'productos'}
+            </span>
           </div>
 
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-thin">
+            {/* Píldora de TODOS los productos */}
+            <button
+              onClick={() => {
+                setSelectedCategory('all');
+                setSearchQuery('');
+              }}
+              className={`px-4 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 shadow-2xs shrink-0 ${
+                selectedCategory === 'all' && !searchQuery.trim()
+                  ? 'bg-brand-600 text-white shadow-sm scale-102 ring-2 ring-brand-500/20'
+                  : 'bg-gray-100/90 text-gray-700 hover:bg-gray-200/80 hover:text-gray-900'
+              }`}
+            >
+              <span>🌟</span>
+              <span>Todos los Productos</span>
+              <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
+                selectedCategory === 'all' && !searchQuery.trim() ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-600'
+              }`}>
+                {PRODUCTS.length}
+              </span>
+            </button>
+
             {CATEGORIES.map((cat) => {
               const isSelected = selectedCategory === cat.id && !searchQuery.trim();
               const countInCat = PRODUCTS.filter((p) => p.category_id === cat.id).length;
@@ -118,9 +208,9 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                     setSelectedCategory(cat.id);
                     setSearchQuery('');
                   }}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 shadow-2xs ${
+                  className={`px-3.5 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 shadow-2xs shrink-0 ${
                     isSelected
-                      ? 'bg-brand-600 text-white shadow-sm scale-102'
+                      ? 'bg-brand-600 text-white shadow-sm scale-102 ring-2 ring-brand-500/20'
                       : 'bg-gray-100/90 text-gray-700 hover:bg-gray-200/80 hover:text-gray-900'
                   }`}
                 >

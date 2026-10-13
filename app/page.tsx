@@ -185,6 +185,44 @@ export default function HomePage() {
             <strong className="text-gray-900 font-extrabold">Carulla</strong>.
           </p>
 
+          {/* Botones de Navegación Rápida: Catálogo Completo vs Canastas Recomendadas */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pt-2">
+            <button
+              onClick={() => {
+                const el = document.getElementById('full-catalog-section');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-brand-500/20 flex items-center gap-2 transition-transform active:scale-95"
+            >
+              <span>🛒 Explorar Catálogo Completo</span>
+              <span className="bg-white/20 text-white text-[11px] px-2 py-0.5 rounded-full font-black">
+                {PRODUCTS.length} productos
+              </span>
+            </button>
+
+            <button
+              onClick={() => {
+                const el = document.getElementById('presets-section');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-white hover:bg-gray-50 text-gray-800 font-bold text-xs sm:text-sm border border-gray-200/90 shadow-2xs flex items-center gap-1.5 transition-colors"
+            >
+              <span>✨ Canastas Recomendadas</span>
+            </button>
+
+            {basket.length > 0 && (
+              <button
+                onClick={() => {
+                  const el = document.getElementById('results-section');
+                  el?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-brand-800 font-bold text-xs sm:text-sm border border-emerald-200/80 shadow-2xs flex items-center gap-1.5 transition-colors"
+              >
+                <span>📊 Comparador ({totalItemsCount} ítems)</span>
+              </button>
+            )}
+          </div>
+
           {/* Ajuste de Presupuesto cuando está activo el Modo Presupuesto */}
           {activeTab === 'budget' && (
             <div className="bg-white rounded-3xl p-5 sm:p-6 border border-brand-200 shadow-sm max-w-xl mx-auto mt-6 text-left space-y-3 animate-fade-in">
@@ -224,7 +262,7 @@ export default function HomePage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-12">
         
         {/* SECCIÓN 1: CANASTAS PREDETERMINADAS (Las 4 opciones recomendadas) */}
-        <section className="animate-fade-in">
+        <section id="presets-section" className="animate-fade-in">
           <PresetBaskets 
             onLoadPreset={handleLoadPreset} 
             activePresetId={activePresetId}
@@ -288,15 +326,20 @@ export default function HomePage() {
           <PriceDropAlerts onAddProduct={handleAddProduct} />
         </section>
 
-        {/* SECCIÓN 4: CATÁLOGO VISUAL DE PRODUCTOS (Filtros por categoría + fotos reales) */}
-        <section className="space-y-4 pt-4 border-t border-gray-200/80">
-          <div className="flex items-center justify-between">
+        {/* SECCIÓN 4: CATÁLOGO COMPLETO DE PRODUCTOS */}
+        <section id="full-catalog-section" className="space-y-4 pt-4 border-t border-gray-200/80">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
+              <div className="inline-flex items-center gap-1.5 bg-brand-50 text-brand-800 px-3 py-1 rounded-full text-xs font-bold mb-1 border border-brand-200/50">
+                <span>🛒 Catálogo Completo</span>
+                <span>•</span>
+                <span>{PRODUCTS.length} Productos Disponibles</span>
+              </div>
               <h2 className="text-2xl sm:text-3xl font-black text-gray-950 tracking-tight">
-                Catálogo de Productos Esenciales
+                Todos los Productos del Mercado
               </h2>
-              <p className="text-xs sm:text-sm text-gray-500">
-                Selecciona por categoría para agregar a tu lista sin sobrecargar la pantalla
+              <p className="text-xs sm:text-sm text-gray-500 max-w-3xl">
+                Cereales, quesos, panela, carnes, lácteos, enlatados, bebidas y aseo. Filtra por categoría o busca cualquier producto para armar tu mercado a tu medida.
               </p>
             </div>
           </div>

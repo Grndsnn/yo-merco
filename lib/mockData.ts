@@ -59,12 +59,15 @@ export const SUPERMARKETS: Supermarket[] = [
 
 export const CATEGORIES: Category[] = [
   { id: 'cat-1', name: 'Despensa y Granos', icon: '🌾', display_order: 1 },
-  { id: 'cat-2', name: 'Lácteos y Huevos', icon: '🥛', display_order: 2 },
-  { id: 'cat-3', name: 'Frutas y Verduras', icon: '🥑', display_order: 3 },
-  { id: 'cat-4', name: 'Carnes y Pollo', icon: '🥩', display_order: 4 },
-  { id: 'cat-5', name: 'Aseo Hogar', icon: '🧼', display_order: 5 },
-  { id: 'cat-6', name: 'Cuidado Personal', icon: '🪥', display_order: 6 },
-  { id: 'cat-7', name: 'Panadería y Café', icon: '☕', display_order: 7 },
+  { id: 'cat-cereales', name: 'Cereales y Desayuno', icon: '🥣', display_order: 2 },
+  { id: 'cat-2', name: 'Lácteos y Quesos', icon: '🧀', display_order: 3 },
+  { id: 'cat-4', name: 'Carnes y Charcutería', icon: '🥩', display_order: 4 },
+  { id: 'cat-conservas', name: 'Enlatados y Conservas', icon: '🥫', display_order: 5 },
+  { id: 'cat-3', name: 'Frutas y Verduras', icon: '🥑', display_order: 6 },
+  { id: 'cat-bebidas', name: 'Bebidas y Refrescos', icon: '🥤', display_order: 7 },
+  { id: 'cat-7', name: 'Panadería y Café', icon: '☕', display_order: 8 },
+  { id: 'cat-5', name: 'Aseo del Hogar', icon: '🧼', display_order: 9 },
+  { id: 'cat-6', name: 'Cuidado Personal', icon: '🪥', display_order: 10 },
 ];
 
 // Matriz de precios por ID de producto y slug de supermercado (en Pesos Colombianos COP)
@@ -76,8 +79,8 @@ export const PRODUCT_PRICES_MATRIX: Record<string, Record<string, number>> = {
   'prod-4': { d1: 3400, ara: 3500, mercaldas: 3800, centro: 3700, exito: 4200, carulla: 4950 }, // Lenteja 500g
   'prod-5': { d1: 4200, ara: 4300, mercaldas: 4600, centro: 4500, exito: 4950, carulla: 5700 }, // Azúcar Blanca 1000g
   'prod-6': { d1: 1500, ara: 1600, mercaldas: 1800, centro: 1750, exito: 2100, carulla: 2600 }, // Sal Yodada 1000g
-  'prod-7': { d1: 4600, ara: 4700, mercaldas: 4900, centro: 4800, exito: 5400, carulla: 6200 }, // Panela Pastilla 1000g
-  'prod-8': { d1: 2400, ara: 2500, mercaldas: 2800, centro: 2700, exito: 3100, carulla: 3700 }, // Spaghetti 500g
+  'prod-7': { d1: 4850, ara: 4900, mercaldas: 5200, centro: 5100, exito: 5700, carulla: 6400 }, // Panela Pastilla 1000g
+  'prod-8': { d1: 3850, ara: 3900, mercaldas: 4200, centro: 4100, exito: 4600, carulla: 5400 }, // Spaghetti Capitán / Doria 500g (Factura D1: $3.850)
   'prod-9': { d1: 3100, ara: 3200, mercaldas: 3500, centro: 3400, exito: 3850, carulla: 4600 }, // Harina Pan / Arepas 1000g
   'prod-10': { d1: 5200, ara: 5350, mercaldas: 5800, centro: 5700, exito: 6300, carulla: 7500 }, // Atún Lomitos en Aceite
 
@@ -113,7 +116,7 @@ export const PRODUCT_PRICES_MATRIX: Record<string, Record<string, number>> = {
   // Aseo Hogar
   'prod-34': { d1: 6800, ara: 7100, mercaldas: 7500, centro: 7400, exito: 8300, carulla: 9900 }, // Detergente en Polvo 1kg
   'prod-35': { d1: 2300, ara: 2400, mercaldas: 2600, centro: 2500, exito: 2900, carulla: 3500 }, // Jabón Rey 300g
-  'prod-36': { d1: 2900, ara: 3100, mercaldas: 3400, centro: 3300, exito: 3800, carulla: 4600 }, // Blanqueador / Cloro 1000ml
+  'prod-36': { d1: 3100, ara: 3200, mercaldas: 3500, centro: 3400, exito: 3900, carulla: 4600 }, // Blanqueador / Cloro 1000ml (Factura D1: $3.100)
   'prod-37': { d1: 3900, ara: 4100, mercaldas: 4500, centro: 4400, exito: 4950, carulla: 5900 }, // Crema Lavaplatos 450g
   'prod-38': { d1: 5900, ara: 6200, mercaldas: 6700, centro: 6600, exito: 7400, carulla: 8900 }, // Papel Higiénico x4
   'prod-39': { d1: 5400, ara: 5600, mercaldas: 6100, centro: 6000, exito: 6800, carulla: 8100 }, // Suavizante Ropa 1000ml
@@ -128,10 +131,108 @@ export const PRODUCT_PRICES_MATRIX: Record<string, Record<string, number>> = {
 
   // Panadería y Café
   'prod-46': { d1: 16800, ara: 17100, mercaldas: 18500, centro: 18200, exito: 20500, carulla: 25900 }, // Café Molido 500g
-  'prod-47': { d1: 5200, ara: 5500, mercaldas: 5900, centro: 5800, exito: 6600, carulla: 7900 }, // Pan Tajado Blanco 450g
+  'prod-47': { d1: 2990, ara: 3150, mercaldas: 3800, centro: 3700, exito: 4400, carulla: 5200 }, // Pan Tajado Blanco 450g (Factura D1: $2.990)
   'prod-48': { d1: 7900, ara: 8200, mercaldas: 8700, centro: 8600, exito: 9600, carulla: 11500 }, // Chocolate de Mesa 500g
   'prod-49': { d1: 4100, ara: 4300, mercaldas: 4600, centro: 4500, exito: 5100, carulla: 6100 }, // Galletas Saltín Taco x3
   'prod-50': { d1: 3400, ara: 3600, mercaldas: 3900, centro: 3800, exito: 4300, carulla: 5200 }, // Arepas con Queso x5
+
+  // === NUEVOS PRODUCTOS VERIFICADOS (Factura D1 y Canasta Familiar Ampliada) ===
+  // Cereales y Desayuno
+  'prod-cereal-hojuelas': { d1: 5850, ara: 5990, mercaldas: 6400, centro: 6300, exito: 7200, carulla: 8500 }, // Hojuelas Azucaradas 500g (Factura D1: $5.850)
+  'prod-cereal-granola': { d1: 6900, ara: 7100, mercaldas: 7900, centro: 7800, exito: 8900, carulla: 10500 }, // Granola con Miel 400g
+  'prod-cereal-choco': { d1: 5900, ara: 6100, mercaldas: 6800, centro: 6600, exito: 7700, carulla: 9100 }, // Cereal Bolitas Chocolate 400g
+
+  // Lácteos y Quesos
+  'prod-queso-doble-crema': { d1: 10500, ara: 10800, mercaldas: 12500, centro: 12200, exito: 13900, carulla: 16500 }, // Queso Doble Crema Tajado 400g (Factura D1: $10.500)
+  'prod-queso-mozzarella': { d1: 11200, ara: 11500, mercaldas: 13200, centro: 12900, exito: 14800, carulla: 17500 }, // Queso Mozzarella Tajado 400g
+  'prod-leche-deslact': { d1: 3200, ara: 3300, mercaldas: 3800, centro: 3700, exito: 4200, carulla: 4900 }, // Leche Deslactosada UHT 900ml (Factura D1: $3.200)
+  'prod-bebida-yogur': { d1: 4250, ara: 4350, mercaldas: 4950, centro: 4800, exito: 5600, carulla: 6800 }, // Bebida con Yogur 1000g (Factura D1: $4.250)
+
+  // Despensa & Panela
+  'prod-panela-pulverizada': { d1: 4500, ara: 4650, mercaldas: 5100, centro: 4950, exito: 5600, carulla: 6500 }, // Panela Pulverizada 800g
+
+  // Enlatados y Conservas
+  'prod-atun-agua': { d1: 4450, ara: 4600, mercaldas: 5200, centro: 5100, exito: 5900, carulla: 7100 }, // Atún Lomitos en Agua 140g (Factura D1: $4.450)
+  'prod-ensalada-rusa': { d1: 5490, ara: 5650, mercaldas: 6200, centro: 6100, exito: 6900, carulla: 8200 }, // Ensalada Rusa 300g (Factura D1: $5.490)
+  'prod-mix-verduras': { d1: 5700, ara: 5850, mercaldas: 6500, centro: 6300, exito: 7200, carulla: 8600 }, // Mix de Verduras 500g (Factura D1: $5.700)
+  'prod-maiz-tierno': { d1: 3600, ara: 3750, mercaldas: 4300, centro: 4200, exito: 4900, carulla: 5800 }, // Maíz Tierno Dulce 300g
+
+  // Carnes y Charcutería
+  'prod-alitas-pollo': { d1: 15700, ara: 15900, mercaldas: 16500, centro: 16200, exito: 18900, carulla: 22900 }, // Alitas de Pollo 1000g (Factura D1: $15.700)
+  'prod-mortadela-jamon': { d1: 5990, ara: 6200, mercaldas: 6900, centro: 6700, exito: 7800, carulla: 9200 }, // Mortadela Jamón Tajada 400g (Factura D1: $5.990)
+
+  // Bebidas y Refrescos
+  'prod-soda-izots': { d1: 2100, ara: 2200, mercaldas: 2700, centro: 2600, exito: 3100, carulla: 3800 }, // Soda Izots / Bretaña 300ml (Factura D1: $2.100)
+  'prod-jugo-nectar': { d1: 3400, ara: 3500, mercaldas: 4100, centro: 3950, exito: 4600, carulla: 5500 }, // Jugo Néctar 1000ml
+  'prod-gaseosa-2l': { d1: 3800, ara: 3900, mercaldas: 5200, centro: 4900, exito: 5800, carulla: 6900 }, // Gaseosa Familiar 2L
+  'prod-agua-bidon': { d1: 4500, ara: 4600, mercaldas: 5200, centro: 5100, exito: 5900, carulla: 7200 }, // Agua Bidón 5L
+
+  // Aseo del Hogar
+  'prod-papel-familiar': { d1: 21200, ara: 21500, mercaldas: 24900, centro: 23800, exito: 27900, carulla: 33500 }, // Papel Megarollo x12 (Factura D1: $21.200)
+  'prod-jabon-barra-pack': { d1: 6150, ara: 6300, mercaldas: 6900, centro: 6700, exito: 7500, carulla: 8900 }, // Jabón en Barra Pack x3 (Factura D1: $6.150)
+  'prod-servilletas': { d1: 2200, ara: 2300, mercaldas: 2800, centro: 2700, exito: 3200, carulla: 3900 }, // Servilletas x100 (Factura D1: $2.200)
+
+  // === AMPLIACIÓN CANASTA FAMILIAR COMPLETA (Mercado Convencional Colombia) ===
+  // Frutas & Verduras
+  'prod-limon': { d1: 2800, ara: 2900, mercaldas: 2400, centro: 2300, exito: 3500, carulla: 4600 }, // Limón Tahití 1kg
+  'prod-manzana': { d1: 5900, ara: 6100, mercaldas: 6800, centro: 6500, exito: 7800, carulla: 9500 }, // Manzana Roja x4
+  'prod-naranja': { d1: 2500, ara: 2600, mercaldas: 2100, centro: 1950, exito: 3200, carulla: 4200 }, // Naranja para Jugo 1kg
+  'prod-papaya': { d1: 3200, ara: 3100, mercaldas: 2600, centro: 2400, exito: 3800, carulla: 4900 }, // Papaya Maradol 1kg
+  'prod-pina': { d1: 3800, ara: 3700, mercaldas: 3200, centro: 3000, exito: 4500, carulla: 5800 }, // Piña Oro Miel 1kg
+  'prod-mango': { d1: 4200, ara: 4100, mercaldas: 3600, centro: 3400, exito: 4900, carulla: 6400 }, // Mango Tommy 1kg
+  'prod-mora': { d1: 3900, ara: 4100, mercaldas: 3400, centro: 3200, exito: 4800, carulla: 6100 }, // Mora para Jugo 500g
+  'prod-fresas': { d1: 4900, ara: 5200, mercaldas: 4500, centro: 4300, exito: 6200, carulla: 7900 }, // Fresas Seleccionadas 500g
+  'prod-guayaba': { d1: 2900, ara: 2800, mercaldas: 2400, centro: 2200, exito: 3400, carulla: 4300 }, // Guayaba Manzana 1kg
+  'prod-platano-verde': { d1: 3600, ara: 3500, mercaldas: 3100, centro: 2950, exito: 4100, carulla: 5300 }, // Plátano Verde 1kg
+  'prod-papa-criolla': { d1: 4200, ara: 4100, mercaldas: 3500, centro: 3300, exito: 4900, carulla: 6400 }, // Papa Criolla Amarilla 1kg
+  'prod-cebolla-junca': { d1: 1900, ara: 1850, mercaldas: 1500, centro: 1400, exito: 2400, carulla: 3200 }, // Cebolla Junca / Larga 500g
+
+  // Carnes, Chorizos & Embutidos
+  'prod-chorizo': { d1: 8900, ara: 9200, mercaldas: 10800, centro: 10500, exito: 12500, carulla: 15800 }, // Chorizos Tradicionales / Santarrosano x6 (450g)
+  'prod-salchichon': { d1: 6200, ara: 6500, mercaldas: 7200, centro: 7000, exito: 8200, carulla: 9900 }, // Salchichón Cervecero / Tradicional 500g
+  'prod-tocineta': { d1: 7900, ara: 8200, mercaldas: 9500, centro: 9200, exito: 10900, carulla: 13500 }, // Tocineta Ahumada Tajada 250g
+  'prod-carne-asar': { d1: 24900, ara: 25500, mercaldas: 23800, centro: 23900, exito: 28500, carulla: 35000 }, // Carne de Res para Asar 1kg
+  'prod-carne-guisar': { d1: 21500, ara: 21900, mercaldas: 20500, centro: 20700, exito: 24800, carulla: 30500 }, // Carne de Res para Guisar / Murillo 1kg
+  'prod-costilla-cerdo': { d1: 18900, ara: 19200, mercaldas: 17900, centro: 18100, exito: 21900, carulla: 27000 }, // Costilla de Cerdo Fresca 1kg
+
+  // Panadería, Galletas & Arepas
+  'prod-pan-integral': { d1: 3600, ara: 3800, mercaldas: 4500, centro: 4300, exito: 5200, carulla: 6500 }, // Pan Tajado Integral 450g
+  'prod-tostadas': { d1: 3200, ara: 3400, mercaldas: 3900, centro: 3800, exito: 4500, carulla: 5400 }, // Tostadas Tradicionales x24
+  'prod-galletas-ducales': { d1: 4500, ara: 4700, mercaldas: 4900, centro: 4850, exito: 5500, carulla: 6600 }, // Galletas Ducales Noel Taco x3
+  'prod-galletas-festival': { d1: 3800, ara: 3950, mercaldas: 4400, centro: 4300, exito: 4900, carulla: 5900 }, // Galletas Festival Chocolate Pack x4
+  'prod-arepas-chocolo': { d1: 4200, ara: 4400, mercaldas: 4800, centro: 4700, exito: 5400, carulla: 6500 }, // Arepas de Chócolo con Queso x5
+
+  // Lácteos & Quesos tradicionales
+  'prod-queso-costeno': { d1: 9800, ara: 10100, mercaldas: 11500, centro: 11200, exito: 12900, carulla: 15500 }, // Queso Costeño 400g
+  'prod-queso-parmesano': { d1: 4900, ara: 5200, mercaldas: 6200, centro: 6000, exito: 7200, carulla: 8900 }, // Queso Parmesano Rallado 100g
+  'prod-leche-condensada': { d1: 4800, ara: 4950, mercaldas: 5600, centro: 5500, exito: 6200, carulla: 7500 }, // Leche Condensada 380g
+  'prod-arequipe': { d1: 3900, ara: 4100, mercaldas: 4700, centro: 4600, exito: 5300, carulla: 6400 }, // Arequipe Colombiano 250g
+
+  // Despensa, Salsas & Condimentos
+  'prod-salsa-tomate': { d1: 3400, ara: 3600, mercaldas: 4200, centro: 4100, exito: 4900, carulla: 5900 }, // Salsa de Tomate Ketchup 400g
+  'prod-mayonesa': { d1: 4200, ara: 4400, mercaldas: 5100, centro: 4950, exito: 5800, carulla: 7100 }, // Mayonesa 400g
+  'prod-mostaza': { d1: 2100, ara: 2200, mercaldas: 2700, centro: 2600, exito: 3100, carulla: 3900 }, // Mostaza 200g
+  'prod-caldo-gallina': { d1: 3100, ara: 3250, mercaldas: 3800, centro: 3700, exito: 4300, carulla: 5200 }, // Caldo de Gallina Maggi x12
+  'prod-color-triguisar': { d1: 1800, ara: 1900, mercaldas: 2200, centro: 2100, exito: 2600, carulla: 3300 }, // Color / Triguisar Condimento 100g
+  'prod-garbanzos': { d1: 3800, ara: 3950, mercaldas: 4400, centro: 4300, exito: 4900, carulla: 5800 }, // Garbanzos 500g
+  'prod-arveja-verde': { d1: 2600, ara: 2700, mercaldas: 3100, centro: 3000, exito: 3600, carulla: 4300 }, // Arveja Verde Seca 500g
+  'prod-pasta-tornillos': { d1: 1950, ara: 2050, mercaldas: 2400, centro: 2300, exito: 2700, carulla: 3300 }, // Pasta Corta Tornillos 250g
+  'prod-azucar-morena': { d1: 4400, ara: 4500, mercaldas: 4800, centro: 4700, exito: 5200, carulla: 5900 }, // Azúcar Morena 1000g
+
+  // Desayuno & Bebidas masivas
+  'prod-cafe-instantaneo': { d1: 12900, ara: 13200, mercaldas: 14800, centro: 14500, exito: 16900, carulla: 20500 }, // Café Instantáneo Colcafé 170g
+  'prod-chocolate-polvo': { d1: 8900, ara: 9200, mercaldas: 10500, centro: 10200, exito: 11900, carulla: 14500 }, // Chocolate Milo / Chocolisto 400g
+  'prod-gaseosa-postobon': { d1: 3900, ara: 4100, mercaldas: 5200, centro: 4900, exito: 5800, carulla: 6900 }, // Gaseosa Postobón Manzana 2L
+  'prod-gaseosa-colombiana': { d1: 3900, ara: 4100, mercaldas: 5200, centro: 4900, exito: 5800, carulla: 6900 }, // Gaseosa Colombiana 2L
+  'prod-jugo-hit': { d1: 3600, ara: 3800, mercaldas: 4400, centro: 4200, exito: 4900, carulla: 5900 }, // Jugo Hit Frutas 1.5L
+
+  // Aseo & Hogar
+  'prod-esponjillas': { d1: 2400, ara: 2500, mercaldas: 2900, centro: 2800, exito: 3400, carulla: 4200 }, // Esponjillas Fibra Verde x3
+  'prod-bolsas-basura': { d1: 4500, ara: 4700, mercaldas: 5400, centro: 5200, exito: 6200, carulla: 7500 }, // Bolsas de Basura Cocina x30
+  'prod-toallas-cocina': { d1: 3900, ara: 4100, mercaldas: 4800, centro: 4700, exito: 5600, carulla: 6800 }, // Toallas de Cocina Rollo x2
+  'prod-desengrasante': { d1: 5200, ara: 5400, mercaldas: 6300, centro: 6100, exito: 7200, carulla: 8900 }, // Desengrasante Cocina 500ml
+  'prod-shampoo-savital': { d1: 7900, ara: 8200, mercaldas: 9200, centro: 8900, exito: 10500, carulla: 12900 }, // Shampoo Savital Sábila 400ml
+  'prod-desodorante-speed': { d1: 7500, ara: 7800, mercaldas: 8900, centro: 8700, exito: 9900, carulla: 11900 }, // Desodorante Speed Stick 50g
 };
 
 export const PRODUCTS: Product[] = [
@@ -225,10 +326,10 @@ export const PRODUCTS: Product[] = [
   {
     id: 'prod-8',
     category_id: 'cat-1',
-    name: 'Pasta Spaghetti 500g',
+    name: 'Pasta Spaghetti 500g (Capitán / Doria)',
     unit_of_measure: '500g',
     standard_quantity: 0.5,
-    barcode: '7702001001080',
+    barcode: '7700304698356', // Factura D1: SPAGUETTI CAP $3.850
     image_url: 'https://images.unsplash.com/photo-1621996346565-e3adc644d9fa?w=300&q=80',
     is_essential: true,
   },
@@ -244,7 +345,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'prod-10',
-    category_id: 'cat-1',
+    category_id: 'cat-conservas',
     name: 'Atún Lomitos en Aceite 160g',
     unit_of_measure: 'unidad',
     standard_quantity: 1.0,
@@ -314,7 +415,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'prod-16',
-    category_id: 'cat-2',
+    category_id: 'cat-cereales',
     name: 'Avena en Hojuelas 500g',
     unit_of_measure: '500g',
     standard_quantity: 0.5,
@@ -524,7 +625,7 @@ export const PRODUCTS: Product[] = [
     name: 'Blanqueador Desinfectante 1000ml',
     unit_of_measure: '1000ml',
     standard_quantity: 1.0,
-    barcode: '7702001001360',
+    barcode: '7700304530939', // Factura D1: BLANQUEADOR B $3.100
     image_url: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=300&q=80',
     is_essential: true,
   },
@@ -646,7 +747,7 @@ export const PRODUCTS: Product[] = [
     name: 'Pan Tajado Blanco Familiar 450g',
     unit_of_measure: '450g',
     standard_quantity: 0.45,
-    barcode: '7702001001470',
+    barcode: '7700304167647', // Factura D1: PAN TAJADO BL $2.990
     image_url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80',
     is_essential: true,
   },
@@ -678,6 +779,746 @@ export const PRODUCTS: Product[] = [
     standard_quantity: 5.0,
     barcode: '7702001001500',
     image_url: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=300&q=80',
+    is_essential: true,
+  },
+
+  // === CEREALES Y DESAYUNO (Factura D1 y canasta básica) ===
+  {
+    id: 'prod-cereal-hojuelas',
+    category_id: 'cat-cereales',
+    name: 'Hojuelas de Maíz Azucaradas 500g',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7700304462490', // Factura D1: HOJUELAS AZUC $5.850
+    image_url: 'https://images.unsplash.com/photo-1521483451569-e33803c0330c?w=300&q=80',
+    is_essential: true,
+    equivalences: {
+      d1: { supermarket_id: '111', supermarket_slug: 'd1', store_product_name: 'Hojuelas Azucaradas D1 500g', store_brand: 'Golden Choice', match_confidence: 1.0 },
+      ara: { supermarket_id: '222', supermarket_slug: 'ara', store_product_name: 'Hojuelas de Maíz Azucaradas Ara 500g', store_brand: 'Sunny Day', match_confidence: 0.95 },
+      mercaldas: { supermarket_id: '333', supermarket_slug: 'mercaldas', store_product_name: 'Cereal Zucaritas Kellogg’s 500g', store_brand: 'Kellogg’s', match_confidence: 0.98 },
+      centro: { supermarket_id: '444', supermarket_slug: 'centro', store_product_name: 'Cereal Zucaritas Kellogg’s 500g', store_brand: 'Kellogg’s', match_confidence: 0.98 },
+      exito: { supermarket_id: '555', supermarket_slug: 'exito', store_product_name: 'Hojuelas de Maíz Azucaradas Éxito 500g', store_brand: 'Éxito', match_confidence: 0.95 },
+      carulla: { supermarket_id: '666', supermarket_slug: 'carulla', store_product_name: 'Cereal Zucaritas Kellogg’s 500g', store_brand: 'Kellogg’s', match_confidence: 1.0 },
+    }
+  },
+  {
+    id: 'prod-cereal-granola',
+    category_id: 'cat-cereales',
+    name: 'Granola con Miel y Frutas 400g',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001001510',
+    image_url: 'https://images.unsplash.com/photo-1517093708365-51d08c8b67ce?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-cereal-choco',
+    category_id: 'cat-cereales',
+    name: 'Cereal Bolitas de Chocolate 400g',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001001520',
+    image_url: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === QUESOS Y LÁCTEOS (Factura D1 y canasta básica) ===
+  {
+    id: 'prod-queso-doble-crema',
+    category_id: 'cat-2',
+    name: 'Queso Doble Crema Tajado 400g',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7700304827398', // Factura D1: QUESO DOBLE C $10.500
+    image_url: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=300&q=80',
+    is_essential: true,
+    equivalences: {
+      d1: { supermarket_id: '111', supermarket_slug: 'd1', store_product_name: 'Queso Doble Crema Tajado Latti 400g', store_brand: 'Latti', match_confidence: 1.0 },
+      ara: { supermarket_id: '222', supermarket_slug: 'ara', store_product_name: 'Queso Doble Crema Tajado Vaca Viva 400g', store_brand: 'Vaca Viva', match_confidence: 0.95 },
+      mercaldas: { supermarket_id: '333', supermarket_slug: 'mercaldas', store_product_name: 'Queso Doble Crema Colanta Tajado 400g', store_brand: 'Colanta', match_confidence: 1.0 },
+      centro: { supermarket_id: '444', supermarket_slug: 'centro', store_product_name: 'Queso Doble Crema Celema 400g', store_brand: 'Celema Caldas', match_confidence: 1.0 },
+      exito: { supermarket_id: '555', supermarket_slug: 'exito', store_product_name: 'Queso Doble Crema Tajado Éxito 400g', store_brand: 'Éxito', match_confidence: 0.95 },
+      carulla: { supermarket_id: '666', supermarket_slug: 'carulla', store_product_name: 'Queso Doble Crema Alpina Tajado 400g', store_brand: 'Alpina', match_confidence: 1.0 },
+    }
+  },
+  {
+    id: 'prod-queso-mozzarella',
+    category_id: 'cat-2',
+    name: 'Queso Mozzarella Tajado 400g',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001001530',
+    image_url: 'https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-leche-deslact',
+    category_id: 'cat-2',
+    name: 'Leche Deslactosada UHT 900ml - 1000ml',
+    unit_of_measure: 'litro',
+    standard_quantity: 1.0,
+    barcode: '7700304822867', // Factura D1: LECHE DESLACT $3.200
+    image_url: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=300&q=80',
+    is_essential: true,
+    equivalences: {
+      d1: { supermarket_id: '111', supermarket_slug: 'd1', store_product_name: 'Leche Deslactosada Latti 900ml', store_brand: 'Latti', match_confidence: 1.0 },
+      ara: { supermarket_id: '222', supermarket_slug: 'ara', store_product_name: 'Leche Deslactosada Vaca Viva 900ml', store_brand: 'Vaca Viva', match_confidence: 0.95 },
+      mercaldas: { supermarket_id: '333', supermarket_slug: 'mercaldas', store_product_name: 'Leche Deslactosada Celema 900ml', store_brand: 'Celema Caldas', match_confidence: 1.0 },
+      centro: { supermarket_id: '444', supermarket_slug: 'centro', store_product_name: 'Leche Deslactosada Colanta 900ml', store_brand: 'Colanta', match_confidence: 1.0 },
+      exito: { supermarket_id: '555', supermarket_slug: 'exito', store_product_name: 'Leche Deslactosada Alquería 900ml', store_brand: 'Alquería', match_confidence: 1.0 },
+      carulla: { supermarket_id: '666', supermarket_slug: 'carulla', store_product_name: 'Leche Deslactosada Alpina 1000ml', store_brand: 'Alpina', match_confidence: 1.0 },
+    }
+  },
+  {
+    id: 'prod-bebida-yogur',
+    category_id: 'cat-2',
+    name: 'Bebida de Yogur con Fruta 1000g (Surtida)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7700304660315', // Factura D1: BEBIDA DE YOG $4.250
+    image_url: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === DESPENSA Y PANELA ===
+  {
+    id: 'prod-panela-pulverizada',
+    category_id: 'cat-1',
+    name: 'Panela Pulverizada 100% Pura 800g',
+    unit_of_measure: '800g',
+    standard_quantity: 0.8,
+    barcode: '7702001001540',
+    image_url: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&q=80',
+    is_essential: true,
+  },
+
+  // === ENLATADOS Y CONSERVAS (Factura D1) ===
+  {
+    id: 'prod-atun-agua',
+    category_id: 'cat-conservas',
+    name: 'Atún Lomitos en Agua 140g - 170g',
+    unit_of_measure: 'unidad',
+    standard_quantity: 1.0,
+    barcode: '7700304930951', // Factura D1: ATUN EN AGUA $4.450
+    image_url: 'https://images.unsplash.com/photo-1544943910-4c1dc44a0eb5?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-ensalada-rusa',
+    category_id: 'cat-conservas',
+    name: 'Ensalada Rusa con Verduras y Aderezo 300g',
+    unit_of_measure: 'unidad',
+    standard_quantity: 1.0,
+    barcode: '7700304132522', // Factura D1: ENSALADA RUSA $5.490
+    image_url: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-mix-verduras',
+    category_id: 'cat-conservas',
+    name: 'Mix de Verduras Campesinas Congeladas 500g',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7700304858132', // Factura D1: MIX DE VERDUR $5.700
+    image_url: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-maiz-tierno',
+    category_id: 'cat-conservas',
+    name: 'Maíz Tierno Dulce en Grano en Lata 300g',
+    unit_of_measure: 'unidad',
+    standard_quantity: 1.0,
+    barcode: '7702001001550',
+    image_url: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === CARNES Y CHARCUTERÍA (Factura D1) ===
+  {
+    id: 'prod-alitas-pollo',
+    category_id: 'cat-4',
+    name: 'Alitas de Pollo Congeladas 1000g',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7700304839223', // Factura D1: ALITAS DE POL $15.700
+    image_url: 'https://images.unsplash.com/photo-1527477378407-63e26be80171?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-mortadela-jamon',
+    category_id: 'cat-4',
+    name: 'Mortadela Especial con Jamón Tajada 400g',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7700304846535', // Factura D1: MORTADELA JAM $5.990
+    image_url: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === BEBIDAS Y REFRESCOS (Factura D1) ===
+  {
+    id: 'prod-soda-izots',
+    category_id: 'cat-bebidas',
+    name: 'Soda Saborizada Izots / Bretaña 300ml - 330ml',
+    unit_of_measure: 'unidad',
+    standard_quantity: 1.0,
+    barcode: '7700304095032', // Factura D1: SODA IZOTS 17 $2.100
+    image_url: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-jugo-nectar',
+    category_id: 'cat-bebidas',
+    name: 'Jugo Néctar de Fruta (Naranja / Mango) 1000ml',
+    unit_of_measure: '1000ml',
+    standard_quantity: 1.0,
+    barcode: '7702001001560',
+    image_url: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-gaseosa-2l',
+    category_id: 'cat-bebidas',
+    name: 'Gaseosa Familiar 1.5L - 2L (Manzana / Colombiana)',
+    unit_of_measure: 'botella',
+    standard_quantity: 2.0,
+    barcode: '7702001001570',
+    image_url: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-agua-bidon',
+    category_id: 'cat-bebidas',
+    name: 'Agua Purificada en Bidón 5L - 6L',
+    unit_of_measure: 'bidon',
+    standard_quantity: 5.0,
+    barcode: '7702001001580',
+    image_url: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === ASEO DEL HOGAR (Factura D1) ===
+  {
+    id: 'prod-papel-familiar',
+    category_id: 'cat-5',
+    name: 'Papel Higiénico Familiar Megarollo (Pack x12)',
+    unit_of_measure: 'paquete_12',
+    standard_quantity: 12.0,
+    barcode: '7700304288168', // Factura D1: PAPEL HIGIENI $21.200
+    image_url: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-jabon-barra-pack',
+    category_id: 'cat-5',
+    name: 'Jabón en Barra Multiactivo Ropa (Pack x3)',
+    unit_of_measure: 'paquete_3',
+    standard_quantity: 3.0,
+    barcode: '7708276719406', // Factura D1: JABON EN BARR $6.150
+    image_url: 'https://images.unsplash.com/photo-1607006314187-b679eb3bc05e?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-servilletas',
+    category_id: 'cat-5',
+    name: 'Servilletas de Cocina Absorbentes (Pack x100)',
+    unit_of_measure: 'paquete',
+    standard_quantity: 1.0,
+    barcode: '7700304305209', // Factura D1: SERVILLETA CO $2.200
+    image_url: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=300&q=80',
+    is_essential: true,
+  },
+
+  // === FRUTAS Y VERDURAS FRESCAS CONVENCIONALES ===
+  {
+    id: 'prod-limon',
+    category_id: 'cat-3',
+    name: 'Limón Tahití Seleccionado (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001600',
+    image_url: 'https://images.unsplash.com/photo-1533082608670-3156a73ab015?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-manzana',
+    category_id: 'cat-3',
+    name: 'Manzana Roja Royal Gala (Pack x4 unidades)',
+    unit_of_measure: 'paquete',
+    standard_quantity: 4.0,
+    barcode: '7702001001601',
+    image_url: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-naranja',
+    category_id: 'cat-3',
+    name: 'Naranja Valencia / Tangelo para Jugo (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001602',
+    image_url: 'https://images.unsplash.com/photo-1547514701-42782101795e?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-papaya',
+    category_id: 'cat-3',
+    name: 'Papaya Maradol Entera (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001603',
+    image_url: 'https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-pina',
+    category_id: 'cat-3',
+    name: 'Piña Oro Miel Dulce (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001604',
+    image_url: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-mango',
+    category_id: 'cat-3',
+    name: 'Mango Tommy Seleccionado (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001605',
+    image_url: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-mora',
+    category_id: 'cat-3',
+    name: 'Mora Silvestre de Castilla para Jugo (500g)',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7702001001606',
+    image_url: 'https://images.unsplash.com/photo-1528821128474-27f963b062bf?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-fresas',
+    category_id: 'cat-3',
+    name: 'Fresas Frescas Seleccionadas (500g)',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7702001001607',
+    image_url: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-guayaba',
+    category_id: 'cat-3',
+    name: 'Guayaba Manzana / Pera (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001608',
+    image_url: 'https://images.unsplash.com/photo-1536511135899-75618cf616f0?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-platano-verde',
+    category_id: 'cat-3',
+    name: 'Plátano Verde para Patacón (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001609',
+    image_url: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-papa-criolla',
+    category_id: 'cat-3',
+    name: 'Papa Criolla Amarilla Lavada (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001610',
+    image_url: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-cebolla-junca',
+    category_id: 'cat-3',
+    name: 'Cebolla Junca / Larga Fresca (Mazo 500g)',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7702001001611',
+    image_url: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?w=300&q=80',
+    is_essential: true,
+  },
+
+  // === CHORIZOS, CARNES Y EMBUTIDOS ===
+  {
+    id: 'prod-chorizo',
+    category_id: 'cat-4',
+    name: 'Chorizo Tradicional Santarrosano / Antioqueño (Pack x6)',
+    unit_of_measure: 'paquete_6',
+    standard_quantity: 6.0,
+    barcode: '7702001001620',
+    image_url: 'https://images.unsplash.com/photo-1585325701165-351af916e581?w=300&q=80',
+    is_essential: true,
+    equivalences: {
+      d1: { supermarket_id: '111', supermarket_slug: 'd1', store_product_name: 'Chorizo Tradicional D1 x6', store_brand: 'Sabrovalle', match_confidence: 0.95 },
+      ara: { supermarket_id: '222', supermarket_slug: 'ara', store_product_name: 'Chorizo Santarrosano Ara x6', store_brand: 'Montefrío', match_confidence: 0.95 },
+      mercaldas: { supermarket_id: '333', supermarket_slug: 'mercaldas', store_product_name: 'Chorizo Santarrosano Santa Rosa x6', store_brand: 'Santa Rosa', match_confidence: 1.0 },
+      centro: { supermarket_id: '444', supermarket_slug: 'centro', store_product_name: 'Chorizo Ternera Zenú x6', store_brand: 'Zenú', match_confidence: 1.0 },
+      exito: { supermarket_id: '555', supermarket_slug: 'exito', store_product_name: 'Chorizo Antioqueño Zenú x6', store_brand: 'Zenú', match_confidence: 1.0 },
+      carulla: { supermarket_id: '666', supermarket_slug: 'carulla', store_product_name: 'Chorizo Parrillero Rica Rondo x6', store_brand: 'Rica', match_confidence: 1.0 },
+    }
+  },
+  {
+    id: 'prod-salchichon',
+    category_id: 'cat-4',
+    name: 'Salchichón Cervecero / Tradicional 500g',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7702001001621',
+    image_url: 'https://images.unsplash.com/photo-1629814249584-bd4d53cf0e7d?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-tocineta',
+    category_id: 'cat-4',
+    name: 'Tocineta Ahumada Tajada 250g',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001001622',
+    image_url: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-carne-asar',
+    category_id: 'cat-4',
+    name: 'Carne de Res para Asar / Bistec Pulpa Negra (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001623',
+    image_url: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-carne-guisar',
+    category_id: 'cat-4',
+    name: 'Carne de Res para Guisar / Murillo (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001624',
+    image_url: 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-costilla-cerdo',
+    category_id: 'cat-4',
+    name: 'Costilla de Cerdo Fresca en Trozos (Kilo)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001625',
+    image_url: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === PANADERÍA, GALLETAS Y DESAYUNO ===
+  {
+    id: 'prod-pan-integral',
+    category_id: 'cat-7',
+    name: 'Pan Tajado Integral con Semillas 450g',
+    unit_of_measure: '450g',
+    standard_quantity: 0.45,
+    barcode: '7702001001630',
+    image_url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-tostadas',
+    category_id: 'cat-7',
+    name: 'Tostadas Tradicionales Tipo Susanita (Paquete x24)',
+    unit_of_measure: 'paquete',
+    standard_quantity: 1.0,
+    barcode: '7702001001631',
+    image_url: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-galletas-ducales',
+    category_id: 'cat-7',
+    name: 'Galletas Ducales Tradicionales (Taco x3)',
+    unit_of_measure: 'paquete',
+    standard_quantity: 3.0,
+    barcode: '7702001001632',
+    image_url: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-galletas-festival',
+    category_id: 'cat-7',
+    name: 'Galletas Festival Rellenas de Chocolate (Pack x4)',
+    unit_of_measure: 'paquete',
+    standard_quantity: 4.0,
+    barcode: '7702001001633',
+    image_url: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-arepas-chocolo',
+    category_id: 'cat-7',
+    name: 'Arepas de Chócolo Dulce con Queso (Pack x5)',
+    unit_of_measure: 'paquete',
+    standard_quantity: 5.0,
+    barcode: '7702001001634',
+    image_url: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === QUESOS TRADICIONALES Y DULCES LÁCTEOS ===
+  {
+    id: 'prod-queso-costeno',
+    category_id: 'cat-2',
+    name: 'Queso Costeño Tradicional 400g',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001001640',
+    image_url: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-queso-parmesano',
+    category_id: 'cat-2',
+    name: 'Queso Parmesano Rallado 100g',
+    unit_of_measure: '100g',
+    standard_quantity: 0.1,
+    barcode: '7702001001641',
+    image_url: 'https://images.unsplash.com/photo-1452195100486-9cc805987862?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-leche-condensada',
+    category_id: 'cat-2',
+    name: 'Leche Condensada Tradicional 380g',
+    unit_of_measure: '380g',
+    standard_quantity: 0.38,
+    barcode: '7702001001642',
+    image_url: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-arequipe',
+    category_id: 'cat-2',
+    name: 'Arequipe Colombiano Dulce de Leche 250g',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001001643',
+    image_url: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === SALSAS, CONDIMENTOS Y GRANOS ===
+  {
+    id: 'prod-salsa-tomate',
+    category_id: 'cat-1',
+    name: 'Salsa de Tomate Ketchup 400g (Fruco / D1)',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001001650',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-mayonesa',
+    category_id: 'cat-1',
+    name: 'Mayonesa Tradicional 400g (Fruco / D1)',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001001651',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-mostaza',
+    category_id: 'cat-1',
+    name: 'Mostaza Tradicional 200g',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001001652',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-caldo-gallina',
+    category_id: 'cat-1',
+    name: 'Caldo de Gallina en Cubos (Caja x12 Maggi)',
+    unit_of_measure: 'caja_12',
+    standard_quantity: 1.0,
+    barcode: '7702001001653',
+    image_url: 'https://images.unsplash.com/photo-1544943910-4c1dc44a0eb5?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-color-triguisar',
+    category_id: 'cat-1',
+    name: 'Color y Condimento con Comino (Triguisar 100g)',
+    unit_of_measure: '100g',
+    standard_quantity: 0.1,
+    barcode: '7702001001654',
+    image_url: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-garbanzos',
+    category_id: 'cat-1',
+    name: 'Garbanzos Seleccionados 500g',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7702001001655',
+    image_url: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-arveja-verde',
+    category_id: 'cat-1',
+    name: 'Arveja Verde Seca 500g',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7702001001656',
+    image_url: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-pasta-tornillos',
+    category_id: 'cat-1',
+    name: 'Pasta Corta Tornillos / Conchas 250g',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001001657',
+    image_url: 'https://images.unsplash.com/photo-1621996346565-e3adc644d9fa?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-azucar-morena',
+    category_id: 'cat-1',
+    name: 'Azúcar Morena 1000g',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001001658',
+    image_url: 'https://images.unsplash.com/photo-1622484212850-cab596d66e74?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === BEBIDAS Y DESAYUNOS MASIVOS ===
+  {
+    id: 'prod-cafe-instantaneo',
+    category_id: 'cat-7',
+    name: 'Café Instantáneo Soluble 170g (Colcafé / Nescafé)',
+    unit_of_measure: '170g',
+    standard_quantity: 0.17,
+    barcode: '7702001001660',
+    image_url: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-chocolate-polvo',
+    category_id: 'cat-7',
+    name: 'Chocolate en Polvo Modificador de Leche 400g (Milo / Chocolisto)',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001001661',
+    image_url: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-gaseosa-postobon',
+    category_id: 'cat-bebidas',
+    name: 'Gaseosa Postobón Manzana 2 Litros',
+    unit_of_measure: 'botella',
+    standard_quantity: 2.0,
+    barcode: '7702001001662',
+    image_url: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-gaseosa-colombiana',
+    category_id: 'cat-bebidas',
+    name: 'Gaseosa Colombiana La Nuestra 2 Litros',
+    unit_of_measure: 'botella',
+    standard_quantity: 2.0,
+    barcode: '7702001001663',
+    image_url: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-jugo-hit',
+    category_id: 'cat-bebidas',
+    name: 'Jugo Hit Frutas Tropicales 1.5L (Mora / Mango)',
+    unit_of_measure: 'botella',
+    standard_quantity: 1.5,
+    barcode: '7702001001664',
+    image_url: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=300&q=80',
+    is_essential: false,
+  },
+
+  // === ASEO Y LIMPIEZA DEL HOGAR ===
+  {
+    id: 'prod-esponjillas',
+    category_id: 'cat-5',
+    name: 'Esponjillas de Fibra Verde / Brillo (Pack x3)',
+    unit_of_measure: 'paquete_3',
+    standard_quantity: 3.0,
+    barcode: '7702001001670',
+    image_url: 'https://images.unsplash.com/photo-1607006314187-b679eb3bc05e?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-bolsas-basura',
+    category_id: 'cat-5',
+    name: 'Bolsas de Basura para Cocina 45x55cm (Rollo x30)',
+    unit_of_measure: 'rollo_30',
+    standard_quantity: 30.0,
+    barcode: '7702001001671',
+    image_url: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-toallas-cocina',
+    category_id: 'cat-5',
+    name: 'Toallas de Papel para Cocina (Rollo x2)',
+    unit_of_measure: 'paquete_2',
+    standard_quantity: 2.0,
+    barcode: '7702001001672',
+    image_url: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-desengrasante',
+    category_id: 'cat-5',
+    name: 'Desengrasante Multiusos en Spray 500ml',
+    unit_of_measure: '500ml',
+    standard_quantity: 0.5,
+    barcode: '7702001001673',
+    image_url: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-shampoo-savital',
+    category_id: 'cat-6',
+    name: 'Shampoo Familiar con Sábila 400ml (Savital)',
+    unit_of_measure: '400ml',
+    standard_quantity: 0.4,
+    barcode: '7702001001674',
+    image_url: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-desodorante-speed',
+    category_id: 'cat-6',
+    name: 'Desodorante en Barra Antitranspirante 50g (Speed Stick / Rexona)',
+    unit_of_measure: 'unidad',
+    standard_quantity: 1.0,
+    barcode: '7702001001675',
+    image_url: 'https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=300&q=80',
     is_essential: true,
   },
 ];

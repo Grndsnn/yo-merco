@@ -78,6 +78,17 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ChevronDown className="w-3 h-3 text-gray-400 absolute right-2.5 pointer-events-none" />
             </div>
 
+            {/* Enlace rápido a catálogo */}
+            <button
+              onClick={() => {
+                const el = document.getElementById('full-catalog-section');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hidden md:flex items-center gap-1.5 text-xs font-bold text-gray-700 hover:text-brand-700 bg-gray-100 hover:bg-brand-50 px-3 py-1.5 rounded-xl transition-colors"
+            >
+              <span>🛒 Catálogo</span>
+            </button>
+
             {/* Botón Mi Canasta */}
             <button
               onClick={onOpenBasket}
