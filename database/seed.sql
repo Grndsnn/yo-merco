@@ -25,7 +25,9 @@ INSERT INTO public.categories (id, name, icon, display_order) VALUES
 ('c1000000-0000-0000-0000-000000000007', 'Panadería y Café', '☕', 7),
 ('c1000000-0000-0000-0000-000000000008', 'Cereales y Desayuno', '🥣', 8),
 ('c1000000-0000-0000-0000-000000000009', 'Enlatados y Conservas', '🥫', 9),
-('c1000000-0000-0000-0000-000000000010', 'Bebidas y Refrescos', '🥤', 10)
+('c1000000-0000-0000-0000-000000000010', 'Bebidas y Refrescos', '🥤', 10),
+('c1000000-0000-0000-0000-000000000011', 'Pastas y Salsas', '🍝', 11),
+('c1000000-0000-0000-0000-000000000012', 'Snacks y Pasabocas', '🍟', 12)
 ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon;
 
 -- 3. PRODUCTOS MAESTROS (50 Esenciales de Alta Rotación en Colombia)

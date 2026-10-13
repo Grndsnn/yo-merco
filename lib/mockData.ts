@@ -59,15 +59,17 @@ export const SUPERMARKETS: Supermarket[] = [
 
 export const CATEGORIES: Category[] = [
   { id: 'cat-1', name: 'Despensa y Granos', icon: '🌾', display_order: 1 },
-  { id: 'cat-cereales', name: 'Cereales y Desayuno', icon: '🥣', display_order: 2 },
-  { id: 'cat-2', name: 'Lácteos y Quesos', icon: '🧀', display_order: 3 },
-  { id: 'cat-4', name: 'Carnes y Charcutería', icon: '🥩', display_order: 4 },
-  { id: 'cat-conservas', name: 'Enlatados y Conservas', icon: '🥫', display_order: 5 },
-  { id: 'cat-3', name: 'Frutas y Verduras', icon: '🥑', display_order: 6 },
-  { id: 'cat-bebidas', name: 'Bebidas y Refrescos', icon: '🥤', display_order: 7 },
-  { id: 'cat-7', name: 'Panadería y Café', icon: '☕', display_order: 8 },
-  { id: 'cat-5', name: 'Aseo del Hogar', icon: '🧼', display_order: 9 },
-  { id: 'cat-6', name: 'Cuidado Personal', icon: '🪥', display_order: 10 },
+  { id: 'cat-pastas', name: 'Pastas y Salsas', icon: '🍝', display_order: 2 },
+  { id: 'cat-cereales', name: 'Cereales y Desayuno', icon: '🥣', display_order: 3 },
+  { id: 'cat-2', name: 'Lácteos y Quesos', icon: '🧀', display_order: 4 },
+  { id: 'cat-4', name: 'Carnes y Charcutería', icon: '🥩', display_order: 5 },
+  { id: 'cat-conservas', name: 'Enlatados y Conservas', icon: '🥫', display_order: 6 },
+  { id: 'cat-3', name: 'Frutas y Verduras', icon: '🥑', display_order: 7 },
+  { id: 'cat-snacks', name: 'Snacks y Pasabocas', icon: '🍟', display_order: 8 },
+  { id: 'cat-bebidas', name: 'Bebidas y Refrescos', icon: '🥤', display_order: 9 },
+  { id: 'cat-7', name: 'Panadería y Café', icon: '☕', display_order: 10 },
+  { id: 'cat-5', name: 'Aseo del Hogar', icon: '🧼', display_order: 11 },
+  { id: 'cat-6', name: 'Cuidado Personal', icon: '🪥', display_order: 12 },
 ];
 
 // Matriz de precios por ID de producto y slug de supermercado (en Pesos Colombianos COP)
@@ -233,6 +235,74 @@ export const PRODUCT_PRICES_MATRIX: Record<string, Record<string, number>> = {
   'prod-desengrasante': { d1: 5200, ara: 5400, mercaldas: 6300, centro: 6100, exito: 7200, carulla: 8900 }, // Desengrasante Cocina 500ml
   'prod-shampoo-savital': { d1: 7900, ara: 8200, mercaldas: 9200, centro: 8900, exito: 10500, carulla: 12900 }, // Shampoo Savital Sábila 400ml
   'prod-desodorante-speed': { d1: 7500, ara: 7800, mercaldas: 8900, centro: 8700, exito: 9900, carulla: 11900 }, // Desodorante Speed Stick 50g
+  // Pastas y Salsas (Ampliación completa)
+  'prod-pasta-espagueti-1000': { d1: 4990, ara: 5200, mercaldas: 5800, centro: 5700, exito: 6500, carulla: 7700 }, // Spaghetti Familiar 1000g
+  'prod-pasta-macarrones': { d1: 1950, ara: 2050, mercaldas: 2300, centro: 2250, exito: 2650, carulla: 3200 }, // Macarrones / Coditos 250g
+  'prod-pasta-conchas': { d1: 1950, ara: 2050, mercaldas: 2350, centro: 2300, exito: 2700, carulla: 3250 }, // Conchitas para Sopa 250g
+  'prod-pasta-cabello-angel': { d1: 1900, ara: 1990, mercaldas: 2250, centro: 2200, exito: 2600, carulla: 3150 }, // Fideos Cabello de Ángel 250g
+  'prod-pasta-lasana': { d1: 5990, ara: 6200, mercaldas: 7400, centro: 7200, exito: 8500, carulla: 10900 }, // Hojas de Lasaña 400g
+  'prod-pasta-ramen': { d1: 1850, ara: 1900, mercaldas: 2200, centro: 2150, exito: 2600, carulla: 3100 }, // Ramen Sopa Instantánea 85g
+  'prod-salsa-tomate-1000': { d1: 7500, ara: 7800, mercaldas: 8900, centro: 8700, exito: 9900, carulla: 11900 }, // Salsa de Tomate Doypack 1000g
+  'prod-mayonesa-200': { d1: 2400, ara: 2550, mercaldas: 2950, centro: 2900, exito: 3400, carulla: 4200 }, // Mayonesa 200g
+  'prod-salsa-rosada': { d1: 2900, ara: 3100, mercaldas: 3600, centro: 3500, exito: 4200, carulla: 5100 }, // Salsa Rosada 200g
+  'prod-salsa-tartara': { d1: 3200, ara: 3400, mercaldas: 3900, centro: 3800, exito: 4600, carulla: 5600 }, // Salsa Tártara 200g
+  'prod-salsa-bbq': { d1: 3100, ara: 3250, mercaldas: 3800, centro: 3700, exito: 4400, carulla: 5400 }, // Salsa BBQ Ahumada 200g
+  'prod-salsa-soya': { d1: 2200, ara: 2300, mercaldas: 2750, centro: 2700, exito: 3200, carulla: 3950 }, // Salsa de Soya 200ml
+  'prod-salsa-negra': { d1: 2300, ara: 2400, mercaldas: 2850, centro: 2800, exito: 3300, carulla: 4100 }, // Salsa Negra Carnes 200ml
+  'prod-salsa-ajo': { d1: 2500, ara: 2650, mercaldas: 3100, centro: 3000, exito: 3600, carulla: 4400 }, // Pasta de Ajo 200g
+  'prod-pasta-tomate': { d1: 1900, ara: 2000, mercaldas: 2400, centro: 2350, exito: 2800, carulla: 3450 }, // Pasta Tomate Concentrada 150g
+  'prod-salsa-napolitana': { d1: 2800, ara: 2950, mercaldas: 3500, centro: 3400, exito: 4100, carulla: 5100 }, // Salsa Napolitana 200g
+  'prod-hogao-guiso': { d1: 2900, ara: 3050, mercaldas: 3600, centro: 3500, exito: 4200, carulla: 5200 }, // Hogao Guiso Criollo 200g
+  'prod-vinagre-blanco': { d1: 1750, ara: 1850, mercaldas: 2200, centro: 2150, exito: 2600, carulla: 3200 }, // Vinagre Blanco 500ml
+  'prod-vinagre-manzana': { d1: 2400, ara: 2550, mercaldas: 3100, centro: 3000, exito: 3700, carulla: 4500 }, // Vinagre Manzana 500ml
+
+  // Snacks y Pasabocas
+  'prod-snack-papas-pollo': { d1: 3900, ara: 4100, mercaldas: 4600, centro: 4500, exito: 5200, carulla: 6200 }, // Papas Pollo 110g
+  'prod-snack-papas-limon': { d1: 3900, ara: 4100, mercaldas: 4600, centro: 4500, exito: 5200, carulla: 6200 }, // Papas Limón 110g
+  'prod-snack-de-todito': { d1: 5200, ara: 5400, mercaldas: 6100, centro: 5950, exito: 6900, carulla: 8200 }, // De Todito 150g
+  'prod-snack-doritos': { d1: 5500, ara: 5700, mercaldas: 6400, centro: 6300, exito: 7200, carulla: 8600 }, // Doritos Mega Queso 160g
+  'prod-snack-choclitos': { d1: 3200, ara: 3350, mercaldas: 3800, centro: 3700, exito: 4300, carulla: 5100 }, // Choclitos 110g
+  'prod-snack-saltin-noel': { d1: 4200, ara: 4400, mercaldas: 4700, centro: 4650, exito: 5300, carulla: 6300 }, // Saltín Noel x3 400g
+  'prod-snack-mani-sal': { d1: 3800, ara: 3950, mercaldas: 4600, centro: 4500, exito: 5200, carulla: 6300 }, // Maní con Sal 200g
+  'prod-snack-trocipollos': { d1: 2600, ara: 2750, mercaldas: 3100, centro: 3000, exito: 3600, carulla: 4400 }, // Trocipollos 100g
+
+  // Despensa & Harinas Extras
+  'prod-harina-trigo': { d1: 3500, ara: 3650, mercaldas: 4100, centro: 4000, exito: 4700, carulla: 5600 }, // Harina Trigo 1000g
+  'prod-maizena': { d1: 3400, ara: 3550, mercaldas: 3950, centro: 3900, exito: 4500, carulla: 5400 }, // Maizena 250g
+  'prod-maiz-pira': { d1: 2800, ara: 2950, mercaldas: 3300, centro: 3200, exito: 3800, carulla: 4600 }, // Maíz Pira 500g
+  'prod-polvo-hornear': { d1: 2100, ara: 2200, mercaldas: 2600, centro: 2550, exito: 3000, carulla: 3700 }, // Polvo Hornear 100g
+  'prod-gelatina-royal': { d1: 1900, ara: 2000, mercaldas: 2350, centro: 2300, exito: 2750, carulla: 3400 }, // Gelatina 80g
+
+  // Carnes Frías y Embutidos Extras
+  'prod-jamon-pierna': { d1: 7900, ara: 8200, mercaldas: 9400, centro: 9100, exito: 10800, carulla: 13200 }, // Jamón Cerdo 450g
+  'prod-jamon-pietran': { d1: 9500, ara: 9900, mercaldas: 11800, centro: 11500, exito: 13500, carulla: 16500 }, // Jamón Pietrán 400g
+  'prod-salchichas-viena': { d1: 3200, ara: 3350, mercaldas: 3900, centro: 3800, exito: 4500, carulla: 5500 }, // Salchichas Viena Lata 150g
+  'prod-butifarra': { d1: 4800, ara: 5000, mercaldas: 5800, centro: 5600, exito: 6700, carulla: 8200 }, // Butifarras x10 250g
+  'prod-jamoneta': { d1: 6500, ara: 6750, mercaldas: 7800, centro: 7600, exito: 8900, carulla: 10900 }, // Jamoneta Enlatada 340g
+
+  // Frutas, Verduras y Frescos Extras
+  'prod-yuca-1000': { d1: 3600, ara: 3500, mercaldas: 2900, centro: 2800, exito: 4100, carulla: 5200 }, // Yuca 1000g
+  'prod-pepino-cohombro': { d1: 1200, ara: 1150, mercaldas: 900, centro: 850, exito: 1500, carulla: 2100 }, // Pepino Cohombro
+  'prod-sandia': { d1: 4900, ara: 4800, mercaldas: 3900, centro: 3800, exito: 5500, carulla: 7200 }, // Sandía Baby 2000g
+  'prod-ajo-malla': { d1: 2200, ara: 2150, mercaldas: 1800, centro: 1750, exito: 2600, carulla: 3400 }, // Ajo Malla x3
+  'prod-mazorca': { d1: 3400, ara: 3300, mercaldas: 2700, centro: 2600, exito: 3900, carulla: 4900 }, // Mazorcas x3
+
+  // Bebidas Extras
+  'prod-agua-botellon-5L': { d1: 4900, ara: 5100, mercaldas: 5900, centro: 5700, exito: 6700, carulla: 8100 }, // Agua Botellón 5L
+  'prod-agua-gas-bretana': { d1: 2700, ara: 2850, mercaldas: 3400, centro: 3300, exito: 3900, carulla: 4700 }, // Bretaña 1500ml
+  'prod-te-limon-1500': { d1: 3100, ara: 3250, mercaldas: 3950, centro: 3850, exito: 4600, carulla: 5600 }, // Té Listo 1.5L
+  'prod-aromaticas-caja': { d1: 3400, ara: 3550, mercaldas: 4200, centro: 4100, exito: 4900, carulla: 5900 }, // Aromáticas x20
+  'prod-cerveza-sixpack': { d1: 14900, ara: 15200, mercaldas: 16500, centro: 16200, exito: 18500, carulla: 21900 }, // Cerveza Sixpack
+
+  // Aseo y Cuidado Personal Extras
+  'prod-limpiador-fabuloso': { d1: 3900, ara: 4100, mercaldas: 4800, centro: 4700, exito: 5500, carulla: 6800 }, // Fabuloso Lavanda 1000ml
+  'prod-jabon-liquido-manos': { d1: 4500, ara: 4700, mercaldas: 5400, centro: 5200, exito: 6200, carulla: 7500 }, // Jabón Líquido 500ml
+  'prod-toallitas-bebe': { d1: 5900, ara: 6200, mercaldas: 7400, centro: 7100, exito: 8500, carulla: 10500 }, // Toallitas Bebé x80
+  'prod-shampoo-anticaspa': { d1: 14500, ara: 14900, mercaldas: 16800, centro: 16400, exito: 19200, carulla: 23500 }, // Head & Shoulders 375ml
+  'prod-crema-colgate-tripack': { d1: 9800, ara: 10200, mercaldas: 11500, centro: 11200, exito: 12900, carulla: 15500 }, // Colgate Tripack
+  'prod-servilletas-100': { d1: 2400, ara: 2550, mercaldas: 2950, centro: 2900, exito: 3400, carulla: 4200 }, // Servilletas x100
+  'prod-maquinas-afeitar': { d1: 4900, ara: 5100, mercaldas: 5800, centro: 5700, exito: 6600, carulla: 7900 }, // Minora / Prestobarba x2
+
 };
 
 export const PRODUCTS: Product[] = [
@@ -325,7 +395,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'prod-8',
-    category_id: 'cat-1',
+    category_id: 'cat-pastas',
     name: 'Pasta Spaghetti 500g (Capitán / Doria)',
     unit_of_measure: '500g',
     standard_quantity: 0.5,
@@ -1319,7 +1389,7 @@ export const PRODUCTS: Product[] = [
   // === SALSAS, CONDIMENTOS Y GRANOS ===
   {
     id: 'prod-salsa-tomate',
-    category_id: 'cat-1',
+    category_id: 'cat-pastas',
     name: 'Salsa de Tomate Ketchup 400g (Fruco / D1)',
     unit_of_measure: '400g',
     standard_quantity: 0.4,
@@ -1329,7 +1399,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'prod-mayonesa',
-    category_id: 'cat-1',
+    category_id: 'cat-pastas',
     name: 'Mayonesa Tradicional 400g (Fruco / D1)',
     unit_of_measure: '400g',
     standard_quantity: 0.4,
@@ -1339,7 +1409,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'prod-mostaza',
-    category_id: 'cat-1',
+    category_id: 'cat-pastas',
     name: 'Mostaza Tradicional 200g',
     unit_of_measure: '200g',
     standard_quantity: 0.2,
@@ -1389,7 +1459,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'prod-pasta-tornillos',
-    category_id: 'cat-1',
+    category_id: 'cat-pastas',
     name: 'Pasta Corta Tornillos / Conchas 250g',
     unit_of_measure: '250g',
     standard_quantity: 0.25,
@@ -1521,6 +1591,574 @@ export const PRODUCTS: Product[] = [
     image_url: 'https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=300&q=80',
     is_essential: true,
   },
+  // ==========================================
+  // PASTAS Y SALSAS (AMPLIACIÓN TOTAL)
+  // ==========================================
+  {
+    id: 'prod-pasta-espagueti-1000',
+    category_id: 'cat-pastas',
+    name: 'Pasta Spaghetti / Espagueti Familiar 1000g (La Muñeca / Doria / D1)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001002001',
+    image_url: 'https://images.unsplash.com/photo-1551462147-ff29053bfc14?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-pasta-macarrones',
+    category_id: 'cat-pastas',
+    name: 'Pasta Corta Macarrones / Coditos 250g (Doria / D1)',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001002002',
+    image_url: 'https://images.unsplash.com/photo-1551462147-ff29053bfc14?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-pasta-conchas',
+    category_id: 'cat-pastas',
+    name: 'Pasta Corta Conchitas para Sopa 250g (La Muñeca / Doria)',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001002003',
+    image_url: 'https://images.unsplash.com/photo-1621996346565-e3adc644d9fa?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-pasta-cabello-angel',
+    category_id: 'cat-pastas',
+    name: 'Pasta Fideos Cabello de Ángel 250g (Para Sopas)',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001002004',
+    image_url: 'https://images.unsplash.com/photo-1621996346565-e3adc644d9fa?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-pasta-lasana',
+    category_id: 'cat-pastas',
+    name: 'Pasta para Lasaña Precocida en Hojas 400g (Doria / Monticello)',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001002005',
+    image_url: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-pasta-ramen',
+    category_id: 'cat-pastas',
+    name: 'Sopa Instantánea Ramen / Fideos con Caldo de Pollo 85g',
+    unit_of_measure: '85g',
+    standard_quantity: 0.085,
+    barcode: '7702001002006',
+    image_url: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salsa-tomate-1000',
+    category_id: 'cat-pastas',
+    name: 'Salsa de Tomate Ketchup Doypack Familiar 1000g (Fruco / D1)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001002007',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-mayonesa-200',
+    category_id: 'cat-pastas',
+    name: 'Mayonesa Tradicional con Limón Sachet 200g (Bary / D1)',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002008',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-salsa-rosada',
+    category_id: 'cat-pastas',
+    name: 'Salsa Rosada para Sandwiches y Comidas Rápidas 200g (Fruco / D1)',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002009',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salsa-tartara',
+    category_id: 'cat-pastas',
+    name: 'Salsa Tártara Especial con Finas Hierbas 200g (San Jorge / Bary)',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002010',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salsa-bbq',
+    category_id: 'cat-pastas',
+    name: 'Salsa BBQ Ahumada para Asados y Costillas 200g (Fruco / D1)',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002011',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salsa-soya',
+    category_id: 'cat-pastas',
+    name: 'Salsa de Soya Tradicional / Sillao 200ml (San Jorge / D1)',
+    unit_of_measure: '200ml',
+    standard_quantity: 0.2,
+    barcode: '7702001002012',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salsa-negra',
+    category_id: 'cat-pastas',
+    name: 'Salsa Negra para Adobar Carnes y Mariscos 200ml',
+    unit_of_measure: '200ml',
+    standard_quantity: 0.2,
+    barcode: '7702001002013',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salsa-ajo',
+    category_id: 'cat-pastas',
+    name: 'Salsa Pasta de Ajo Lista para Cocina 200g',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002014',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-pasta-tomate',
+    category_id: 'cat-pastas',
+    name: 'Pasta Concentrada de Tomate 150g Doypack',
+    unit_of_measure: '150g',
+    standard_quantity: 0.15,
+    barcode: '7702001002015',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salsa-napolitana',
+    category_id: 'cat-pastas',
+    name: 'Salsa para Pasta Napolitana con Tomate y Albahaca 200g (Bary / D1)',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002016',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-hogao-guiso',
+    category_id: 'cat-pastas',
+    name: 'Hogao Criollo Guiso Listo con Tomate y Cebolla 200g',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002017',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-vinagre-blanco',
+    category_id: 'cat-pastas',
+    name: 'Vinagre Blanco para Cocina y Desinfección 500ml',
+    unit_of_measure: '500ml',
+    standard_quantity: 0.5,
+    barcode: '7702001002018',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-vinagre-manzana',
+    category_id: 'cat-pastas',
+    name: 'Vinagre de Manzana / Frutas Naturales 500ml',
+    unit_of_measure: '500ml',
+    standard_quantity: 0.5,
+    barcode: '7702001002019',
+    image_url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+    is_essential: false,
+  },
+
+  // ==========================================
+  // SNACKS Y PASABOCAS (MERCADO CONVENCIONAL)
+  // ==========================================
+  {
+    id: 'prod-snack-papas-pollo',
+    category_id: 'cat-snacks',
+    name: 'Papas Fritas Sabor a Pollo 110g (Margarita / D1)',
+    unit_of_measure: '110g',
+    standard_quantity: 0.11,
+    barcode: '7702001002020',
+    image_url: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-snack-papas-limon',
+    category_id: 'cat-snacks',
+    name: 'Papas Fritas Sabor a Limón 110g (Margarita / D1)',
+    unit_of_measure: '110g',
+    standard_quantity: 0.11,
+    barcode: '7702001002021',
+    image_url: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-snack-de-todito',
+    category_id: 'cat-snacks',
+    name: 'Pasabocas De Todito Natural Mezcla 150g',
+    unit_of_measure: '150g',
+    standard_quantity: 0.15,
+    barcode: '7702001002022',
+    image_url: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-snack-doritos',
+    category_id: 'cat-snacks',
+    name: 'Tortillas de Maíz Doritos Mega Queso 160g',
+    unit_of_measure: '160g',
+    standard_quantity: 0.16,
+    barcode: '7702001002023',
+    image_url: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-snack-choclitos',
+    category_id: 'cat-snacks',
+    name: 'Pasabocas de Maíz Choclitos Sabor Limón y Ají 110g',
+    unit_of_measure: '110g',
+    standard_quantity: 0.11,
+    barcode: '7702001002024',
+    image_url: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-snack-saltin-noel',
+    category_id: 'cat-snacks',
+    name: 'Galletas Saltín Noel Tradicional Taco x3 (400g)',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001002025',
+    image_url: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-snack-mani-sal',
+    category_id: 'cat-snacks',
+    name: 'Maní Tostado con Sal 200g (La Especial / D1)',
+    unit_of_measure: '200g',
+    standard_quantity: 0.2,
+    barcode: '7702001002026',
+    image_url: 'https://images.unsplash.com/photo-1536591375315-1b83887e24e3?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-snack-trocipollos',
+    category_id: 'cat-snacks',
+    name: 'Pasabocas Sabor a Pollo Trocipollos 100g',
+    unit_of_measure: '100g',
+    standard_quantity: 0.1,
+    barcode: '7702001002027',
+    image_url: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&q=80',
+    is_essential: false,
+  },
+
+  // ==========================================
+  // HARINAS, REPOSTERÍA Y DESPENSA
+  // ==========================================
+  {
+    id: 'prod-harina-trigo',
+    category_id: 'cat-1',
+    name: 'Harina de Trigo Fortificada 1000g (Haz de Oros / D1)',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001002028',
+    image_url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-maizena',
+    category_id: 'cat-1',
+    name: 'Fécula de Maíz Maizena Tradicional 250g',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001002029',
+    image_url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-maiz-pira',
+    category_id: 'cat-1',
+    name: 'Maíz Pira Seleccionado para Palomitas 500g',
+    unit_of_measure: '500g',
+    standard_quantity: 0.5,
+    barcode: '7702001002030',
+    image_url: 'https://images.unsplash.com/photo-1578849278619-e73505e9610f?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-polvo-hornear',
+    category_id: 'cat-1',
+    name: 'Polvo para Hornear 100g (Royal / D1)',
+    unit_of_measure: '100g',
+    standard_quantity: 0.1,
+    barcode: '7702001002031',
+    image_url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-gelatina-royal',
+    category_id: 'cat-1',
+    name: 'Gelatina en Polvo Sabor Fresa 80g (Royal / D1)',
+    unit_of_measure: '80g',
+    standard_quantity: 0.08,
+    barcode: '7702001002032',
+    image_url: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&q=80',
+    is_essential: false,
+  },
+
+  // ==========================================
+  // CARNES FRÍAS Y EMBUTIDOS ADICIONALES
+  // ==========================================
+  {
+    id: 'prod-jamon-pierna',
+    category_id: 'cat-4',
+    name: 'Jamón de Pierna de Cerdo Tajado 450g (Zenú / Rica / D1)',
+    unit_of_measure: '450g',
+    standard_quantity: 0.45,
+    barcode: '7702001002033',
+    image_url: 'https://images.unsplash.com/photo-1524438418049-ab2acb7aa48f?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-jamon-pietran',
+    category_id: 'cat-4',
+    name: 'Jamón Pietrán de Pavo / Pollo Bajo en Grasa 400g',
+    unit_of_measure: '400g',
+    standard_quantity: 0.4,
+    barcode: '7702001002034',
+    image_url: 'https://images.unsplash.com/photo-1524438418049-ab2acb7aa48f?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-salchichas-viena',
+    category_id: 'cat-conservas',
+    name: 'Salchichas Tipo Viena Enlatadas 150g (Zenú / D1)',
+    unit_of_measure: '150g',
+    standard_quantity: 0.15,
+    barcode: '7702001002035',
+    image_url: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-butifarra',
+    category_id: 'cat-4',
+    name: 'Butifarras Tradicionales con Pimienta x10 (250g)',
+    unit_of_measure: '250g',
+    standard_quantity: 0.25,
+    barcode: '7702001002036',
+    image_url: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-jamoneta',
+    category_id: 'cat-conservas',
+    name: 'Jamoneta / Almuerzo de Cerdo Enlatado 340g (Bary / D1)',
+    unit_of_measure: '340g',
+    standard_quantity: 0.34,
+    barcode: '7702001002037',
+    image_url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&q=80',
+    is_essential: false,
+  },
+
+  // ==========================================
+  // FRUTAS, VERDURAS Y TUBÉRCULOS EXTRA
+  // ==========================================
+  {
+    id: 'prod-yuca-1000',
+    category_id: 'cat-3',
+    name: 'Yuca Fresca Parafinada 1000g',
+    unit_of_measure: '1000g',
+    standard_quantity: 1.0,
+    barcode: '7702001002038',
+    image_url: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-pepino-cohombro',
+    category_id: 'cat-3',
+    name: 'Pepino Cohombro Fresco x unidad',
+    unit_of_measure: 'unidad',
+    standard_quantity: 1.0,
+    barcode: '7702001002039',
+    image_url: 'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-sandia',
+    category_id: 'cat-3',
+    name: 'Sandía Baby Entera / Porción 2000g',
+    unit_of_measure: '2000g',
+    standard_quantity: 2.0,
+    barcode: '7702001002040',
+    image_url: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-ajo-malla',
+    category_id: 'cat-3',
+    name: 'Ajo en Cabeza Malla x3 unidades (150g)',
+    unit_of_measure: 'malla_3',
+    standard_quantity: 3.0,
+    barcode: '7702001002041',
+    image_url: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-mazorca',
+    category_id: 'cat-3',
+    name: 'Mazorca Chócolo para Desgranar x3 unidades',
+    unit_of_measure: 'paquete_3',
+    standard_quantity: 3.0,
+    barcode: '7702001002042',
+    image_url: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=300&q=80',
+    is_essential: false,
+  },
+
+  // ==========================================
+  // BEBIDAS MASIVAS ADICIONALES
+  // ==========================================
+  {
+    id: 'prod-agua-botellon-5L',
+    category_id: 'cat-bebidas',
+    name: 'Agua Pura en Botellón con Manija 5 Litros (Cristal / D1)',
+    unit_of_measure: '5000ml',
+    standard_quantity: 5.0,
+    barcode: '7702001002043',
+    image_url: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-agua-gas-bretana',
+    category_id: 'cat-bebidas',
+    name: 'Agua con Gas Bretaña Pet 1500ml',
+    unit_of_measure: '1500ml',
+    standard_quantity: 1.5,
+    barcode: '7702001002044',
+    image_url: 'https://images.unsplash.com/photo-1556881286-fc6915169721?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-te-limon-1500',
+    category_id: 'cat-bebidas',
+    name: 'Té Listo con Sabor a Limón / Durazno Pet 1.5L (Mr Tea / D1)',
+    unit_of_measure: '1500ml',
+    standard_quantity: 1.5,
+    barcode: '7702001002045',
+    image_url: 'https://images.unsplash.com/photo-1556881286-fc6915169721?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-aromaticas-caja',
+    category_id: 'cat-7',
+    name: 'Aromáticas Surtidas de Hierbas Naturales Caja x20 (Jaibel / Hindú)',
+    unit_of_measure: 'caja_20',
+    standard_quantity: 20.0,
+    barcode: '7702001002046',
+    image_url: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-cerveza-sixpack',
+    category_id: 'cat-bebidas',
+    name: 'Cerveza Poker / Águila Lata Six Pack 330ml x6',
+    unit_of_measure: 'sixpack',
+    standard_quantity: 6.0,
+    barcode: '7702001002047',
+    image_url: 'https://images.unsplash.com/photo-1608270191771-471f4ebfd2bc?w=300&q=80',
+    is_essential: false,
+  },
+
+  // ==========================================
+  // ASEO DEL HOGAR Y CUIDADO PERSONAL EXTRA
+  // ==========================================
+  {
+    id: 'prod-limpiador-fabuloso',
+    category_id: 'cat-5',
+    name: 'Limpiador Desinfectante Multiusos Lavanda 1000ml (Fabuloso / D1)',
+    unit_of_measure: '1000ml',
+    standard_quantity: 1.0,
+    barcode: '7702001002048',
+    image_url: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-jabon-liquido-manos',
+    category_id: 'cat-6',
+    name: 'Jabón Líquido Antibacterial para Manos con Dosificador 500ml',
+    unit_of_measure: '500ml',
+    standard_quantity: 0.5,
+    barcode: '7702001002049',
+    image_url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-toallitas-bebe',
+    category_id: 'cat-6',
+    name: 'Toallitas Húmedas para Bebé Sin Alcohol x80 (Pequeñín / D1)',
+    unit_of_measure: 'paquete_80',
+    standard_quantity: 80.0,
+    barcode: '7702001002050',
+    image_url: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-shampoo-anticaspa',
+    category_id: 'cat-6',
+    name: 'Shampoo Control Caspa 375ml (Head & Shoulders / D1)',
+    unit_of_measure: '375ml',
+    standard_quantity: 0.375,
+    barcode: '7702001002051',
+    image_url: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=300&q=80',
+    is_essential: false,
+  },
+  {
+    id: 'prod-crema-colgate-tripack',
+    category_id: 'cat-6',
+    name: 'Crema Dental Triple Acción Tripack 3x100ml (Colgate)',
+    unit_of_measure: 'tripack',
+    standard_quantity: 3.0,
+    barcode: '7702001002052',
+    image_url: 'https://images.unsplash.com/photo-1559599101-f09722fb4948?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-servilletas-100',
+    category_id: 'cat-5',
+    name: 'Servilletas Blancas Hoja Sencilla Paquete x100 (Familia / D1)',
+    unit_of_measure: 'paquete_100',
+    standard_quantity: 100.0,
+    barcode: '7702001002053',
+    image_url: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=300&q=80',
+    is_essential: true,
+  },
+  {
+    id: 'prod-maquinas-afeitar',
+    category_id: 'cat-6',
+    name: 'Máquinas de Afeitar Desechables x2 (Minora / Prestobarba)',
+    unit_of_measure: 'paquete_2',
+    standard_quantity: 2.0,
+    barcode: '7702001002054',
+    image_url: 'https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=300&q=80',
+    is_essential: false,
+  },
+
 ];
 
 export const PRESET_BASKETS: import('@/types').PresetBasket[] = [

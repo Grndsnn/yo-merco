@@ -23,6 +23,8 @@ const normalizeText = (text: string): string => {
     .replace(/spaguetti/g, 'spaghetti')
     .replace(/espagueti/g, 'spaghetti')
     .replace(/yogurt/g, 'yogur')
+    .replace(/ketchup/g, 'salsa de tomate')
+    .replace(/catsup/g, 'salsa de tomate')
     .trim();
 };
 
@@ -43,9 +45,12 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   }, [basket]);
 
   const quickFilters = [
+    { label: '🍝 Pastas', query: 'pasta' },
+    { label: '🥫 Salsas', query: 'salsa' },
     { label: '🥖 Pan Tajado', query: 'pan tajado' },
     { label: '🥩 Mortadela', query: 'mortadela' },
     { label: '🌭 Chorizos', query: 'chorizo' },
+    { label: '🍟 Snacks / Papas', query: 'snack' },
     { label: '🥑 Frutas', query: 'fruta' },
     { label: '🥣 Cereales', query: 'cereal' },
     { label: '🧀 Quesos', query: 'queso' },
@@ -53,7 +58,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
     { label: '🥛 Leches', query: 'leche' },
     { label: '🥫 Atún / Conservas', query: 'atun' },
     { label: '🧻 Aseo / Papel', query: 'papel' },
-    { label: '🥤 Bebidas', query: 'soda' },
+    { label: '🥤 Bebidas', query: 'bebida' },
   ];
 
   const filteredProducts = useMemo(() => {
